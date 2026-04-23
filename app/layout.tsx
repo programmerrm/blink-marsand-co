@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/smoothScroll/smoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${montserrat.variable} ${roboto.variable} min-h-full`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
