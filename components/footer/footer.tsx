@@ -1,16 +1,15 @@
-
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import logoIcon from "../../assets/logo/logo.svg";
-import mappinIcon from "../../assets/logo/mappin.svg";
-import phoneIcon from "../../assets/logo/phone.svg";
-import mailIcon from "../../assets/logo/mail.svg";
-import facebookIcon from "../../assets/logo/facebook.png";
-import instagramIcon from "../../assets/logo/instagram.png";
-import linkedinIcon from "../../assets/logo/linkedin.png";
-import yputubeIcon from "../../assets/logo/youtube.png";
-import googleIcon from "../../assets/logo/googleplay.svg";
-import appleIcon from "../../assets/logo/apple.svg";
+import mappinIcon from "../../assets/icon/mappin.svg";
+import phoneIcon from "../../assets/icon/phone.svg";
+import mailIcon from "../../assets/icon/mail.svg";
+import facebookIcon from "../../assets/icon/facebook.png";
+import instagramIcon from "../../assets/icon/instagram.png";
+import linkedinIcon from "../../assets/icon/linkedin.png";
+import yputubeIcon from "../../assets/icon/youtube.png";
+import googleIcon from "../../assets/icon/googleplay.svg";
+import appleIcon from "../../assets/icon/apple.svg";
 
 export default function Footer() {
   return (
