@@ -11,15 +11,16 @@ import linkedinIcon from "../../assets/logo/linkedin.png";
 import yputubeIcon from "../../assets/logo/youtube.png";
 import googleIcon from "../../assets/logo/googleplay.svg";
 import appleIcon from "../../assets/logo/apple.svg";
+import { FlagIcon } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-[#FBF8E9] py-12.5 md:py-25">
       <div className="container">
 
-        <div className="flex gap-5 justify-between">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between border-b border-[#01292C]/20 pb-8 sm:pb-10">
           {/* Logo + Description */}
-          <div className="w-full max-w-[384px]">
+          <div className="w-full lg:max-w-[384px]">
             <div className="w-full max-w-27.5">
               <Image 
                 src={logoIcon}
@@ -58,11 +59,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="w-full max-w-193.75 flex justify-between lg:gap-5 gap-10.5">
+          <div className="w-full lg:max-w-193.75 flex flex-col sm:flex-row justify-between lg:gap-5 gap-10.5 mt-4">
             {/* Product */}
             <div className="w-full max-w-26">
-              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-6 sm:mb-8">Product</h6>
-              <ul className="space-y-2 text-sm">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-4 sm:mb-8">Product</h6>
+              <ul className="space-y-2 sm:space-y-4">
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Personal</Link></li>
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Business</Link></li>
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Rewards</Link></li>
@@ -73,8 +74,8 @@ export default function Footer() {
 
             {/* Legal */}
             <div className="w-full max-w-43.5">
-              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-6 sm:mb-8">Legal & Regulatory</h6>
-              <ul className="space-y-2 text-sm">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-4 sm:mb-8">Legal & Regulatory</h6>
+              <ul className="space-y-2 sm:space-y-4">
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Terms & Conditions</Link></li>
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Privacy Policy</Link></li>
                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Schedule of Charges</Link></li>
@@ -87,7 +88,7 @@ export default function Footer() {
 
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-3">
-                  <div className="w-full max-w-6">
+                  <div className="w-full max-w-4 sm:max-w-6">
                     <Image 
                       src={mappinIcon}
                       alt="mappinIcon"
@@ -101,7 +102,7 @@ export default function Footer() {
                 </li>
 
                 <li className="flex items-center gap-3">
-                  <div className="w-full max-w-6">
+                  <div className="w-4 sm:w-6">
                     <Image 
                       src={mailIcon}
                       alt="mailIcon"
@@ -115,7 +116,7 @@ export default function Footer() {
                 </li>
 
                 <li className="flex items-center gap-3">
-                  <div className="w-full max-w-6">
+                  <div className="w-4 sm:w-6">
                     <Image 
                       src={phoneIcon}
                       alt="phoneIcon"
@@ -137,7 +138,7 @@ export default function Footer() {
                 <Link href="#"
                   target="_blank"
                 >
-                  <div className="h-6 w-6">
+                  <div className="w-6">
                     <Image 
                       src={facebookIcon}
                       alt="facebookIcon"
@@ -150,7 +151,7 @@ export default function Footer() {
                 <Link href="#"
                   target="_blank"
                 >
-                  <div className="h-6 w-6">
+                  <div className=" w-6">
                     <Image 
                       src={instagramIcon}
                       alt="instagramIcon"
@@ -163,7 +164,7 @@ export default function Footer() {
                 <Link href="#"
                   target="_blank"
                 >
-                  <div className="h-6 w-6">
+                  <div className=" w-6">
                     <Image 
                       src={linkedinIcon}
                       alt="linkedinIcon"
@@ -176,7 +177,7 @@ export default function Footer() {
                 <Link href="#"
                   target="_blank"
                 >
-                  <div className="h-6 w-6">
+                  <div className=" w-6">
                     <Image 
                       src={yputubeIcon}
                       alt="yputubeIcon"
@@ -192,9 +193,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="container mt-10 border-t border-gray-300 pt-4 flex flex-col md:flex-row justify-between text-xs">
-        <p>© 2026 City Bank PLC. All rights reserved.</p>
-        <p className="mt-2 md:mt-0">Made for Bangladesh 🇧🇩</p>
+      <div className="container pt-2 sm:pt-2.5 flex flex-col sm:flex-row justify-between">
+        <p className="text-sm leading-6 font-normal font-inter text-[#01292C]">© 2026 City Bank PLC. All rights reserved.</p>
+        <p className="text-sm leading-6 font-normal font-inter text-[#01292C] flex items-center gap-2">
+          Made for Bangladesh 🇧🇩
+        </p>
       </div>
     </footer>
   );
