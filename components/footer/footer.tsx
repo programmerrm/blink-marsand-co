@@ -75,9 +75,26 @@ export default function Footer() {
             });
 
             tl.fromTo(logo, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 })
-                .fromTo(paragraph, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 })
-                .fromTo(appTitle, { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 })
-                .fromTo(buttons, { y: 20, opacity: 0 }, {
+                .fromTo(paragraph, {
+                    y: 30,
+                    opacity: 0
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5
+                })
+                .fromTo(appTitle, {
+                    y: 25,
+                    opacity: 0
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4
+                })
+                .fromTo(buttons, {
+                    y: 20,
+                    opacity: 0
+                }, {
                     y: 0,
                     opacity: 1,
                     duration: 0.4,
@@ -149,7 +166,6 @@ export default function Footer() {
 
     return (
         <footer className="bg-[#FBF8E9] py-12.5 md:py-25" ref={footerRef}>
-
             {/* Top */}
             <div className="container" ref={topRef}>
                 <div className="flex flex-col lg:flex-row gap-5 justify-between border-b border-[#01292C]/20 pb-8 sm:pb-10">
@@ -163,14 +179,9 @@ export default function Footer() {
                                 height={48}
                             />
                         </div>
-
-                        <p className="text-sm sm:text-base font-normal font-inter leading-6 text-[#003235] mt-4 sm:mt-6">
-                            A new digital banking experience by City Bank PLC. Designed to make everyday money simpler, faster, and more intuitive.
-                        </p>
-
+                        <p className="text-sm sm:text-base font-normal font-inter leading-6 text-[#003235] mt-4 sm:mt-6">A new digital banking experience by City Bank PLC. Designed to make everyday money simpler, faster, and more intuitive.</p>
                         <div>
                             <h6 className="text-sm sm:text-base font-semibold font-inter leading-6 text-[#003235] mt-4 sm:mt-5">Get the App</h6>
-
                             <div className="flex gap-3 mt-2">
                                 <button className=" cursor-pointer">
                                     <Image
@@ -180,7 +191,6 @@ export default function Footer() {
                                         height={40}
                                     />
                                 </button>
-
                                 <button className=" cursor-pointer">
                                     <Image
                                         src={appleIcon}
@@ -192,7 +202,6 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-
                     <div className="w-full lg:max-w-193.75 flex flex-col sm:flex-row justify-between lg:gap-5 gap-10.5 mt-4">
                         {/* Product */}
                         <div className="w-full max-w-26 product-section">
@@ -205,7 +214,6 @@ export default function Footer() {
                                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Help Center</Link></li>
                             </ul>
                         </div>
-
                         {/* Legal */}
                         <div className="w-full max-w-43.5 legal-section">
                             <h6 className="legal-ttile legal-title text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-4 sm:mb-8">Legal & Regulatory</h6>
@@ -215,11 +223,9 @@ export default function Footer() {
                                 <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Schedule of Charges</Link></li>
                             </ul>
                         </div>
-
                         {/* Contact */}
                         <div className="w-full max-w-58.5 contact-section">
                             <h6 className="contact-title text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-3 sm:mb-4">Contact Us</h6>
-
                             <ul className="contact-list space-y-2 sm:space-y-4">
                                 <li className="flex items-center gap-3">
                                     <div className="w-full max-w-4 sm:max-w-6">
@@ -234,7 +240,6 @@ export default function Footer() {
                                         Wisconsin Ave, Suite 700 Chevy Chase, Maryland 20815
                                     </span>
                                 </li>
-
                                 <li className="flex items-center gap-3">
                                     <div className="w-4 sm:w-6">
                                         <Image
@@ -248,7 +253,6 @@ export default function Footer() {
                                         hello@blink.com.bd
                                     </Link>
                                 </li>
-
                                 <li className="flex items-center gap-3">
                                     <div className="w-4 sm:w-6">
                                         <Image
@@ -264,11 +268,9 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-
                         {/* Social */}
                         <div className="w-full max-w-34.25 social-section">
                             <h6 className="social-title text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-2">Follow us</h6>
-
                             <ul className="flex gap-3 social-list">
                                 <li>
                                     <Link href="#"
@@ -284,7 +286,6 @@ export default function Footer() {
                                         </div>
                                     </Link>
                                 </li>
-
                                 <li>
                                     <Link href="#"
                                         target="_blank"
@@ -299,7 +300,6 @@ export default function Footer() {
                                         </div>
                                     </Link>
                                 </li>
-
                                 <li>
                                     <Link href="#"
                                         target="_blank"
@@ -314,7 +314,6 @@ export default function Footer() {
                                         </div>
                                     </Link>
                                 </li>
-
                                 <li>
                                     <Link href="#"
                                         target="_blank"
@@ -331,11 +330,9 @@ export default function Footer() {
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             {/* Bottom */}
             <div className="container pt-2 sm:pt-2.5 flex flex-col sm:flex-row justify-between" ref={bottomRef}>
                 <p className="text-sm leading-6 font-normal font-inter text-[#01292C]">© 2026 City Bank PLC. All rights reserved.</p>
@@ -343,7 +340,6 @@ export default function Footer() {
                     Made for Bangladesh 🇧🇩
                 </p>
             </div>
-
         </footer>
     );
 }
