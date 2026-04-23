@@ -11,7 +11,6 @@ import linkedinIcon from "../../assets/logo/linkedin.png";
 import yputubeIcon from "../../assets/logo/youtube.png";
 import googleIcon from "../../assets/logo/googleplay.svg";
 import appleIcon from "../../assets/logo/apple.svg";
-import { FlagIcon } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -86,7 +85,7 @@ export default function Footer() {
             <div className="w-full max-w-58.5">
               <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-3 sm:mb-4">Contact Us</h6>
 
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-2 sm:space-y-4">
                 <li className="flex items-center gap-3">
                   <div className="w-full max-w-4 sm:max-w-6">
                     <Image 
