@@ -33,7 +33,7 @@ body {
         @apply text-xl lg:text-[40px] lg:leading-15 font-semibold
     }
     h4{
-        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold text 
+        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold 
     }
     h5{
         @apply text-sm sm:text-xl lg:leading-7.5 font-semibold
