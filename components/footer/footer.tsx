@@ -1,6 +1,5 @@
-
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import logoIcon from "../../assets/logo/logo.svg";
 import mappinIcon from "../../assets/logo/mappin.svg";
 import phoneIcon from "../../assets/logo/phone.svg";
@@ -11,7 +10,6 @@ import linkedinIcon from "../../assets/logo/linkedin.png";
 import yputubeIcon from "../../assets/logo/youtube.png";
 import googleIcon from "../../assets/logo/googleplay.svg";
 import appleIcon from "../../assets/logo/apple.svg";
-import { FlagIcon } from "lucide-react";
 
 export default function Footer() {
   return (
