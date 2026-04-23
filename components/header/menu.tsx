@@ -48,11 +48,7 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
 
                     {/* dropdown */}
                     <ul
-                        className={`
-              ${mobile ? "relative mt-2" : "absolute left-0 top-full"}
-              bg-white shadow-lg rounded-md p-3 min-w-45
-              ${mobile ? (openMenu === item.id ? "block" : "hidden") : "hidden group-hover:block"}
-            `}
+                        className={` ${mobile ? "relative mt-2" : "absolute left-0 top-full"} bg-white shadow-lg rounded-md p-3 min-w-45 z-40 ${mobile ? (openMenu === item.id ? "block" : "hidden") : "hidden group-hover:block"}`}
                     >
                         {item.links.map((link, i) => (
                             <li key={i}>
