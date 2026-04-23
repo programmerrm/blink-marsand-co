@@ -1,4 +1,5 @@
 "use client";
+
 import gsap from "gsap";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,32 +24,61 @@ export default function Footer() {
     const bottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: footerRef.current,
-                start: "top 85%",
-                toggleActions: "play none none reverse",
+        if (!footerRef.current || !topRef.current || !bottomRef.current) return;
+        gsap.fromTo(
+            footerRef.current,
+            {
+                y: 80,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: footerRef.current,
+                    start: "top 88%",
+                    toggleActions: "play none none reverse",
+                }
             }
-        });
-
-        tl.from(footerRef.current, {
-            y: 80,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out"
-        })
-        .from(topRef.current, {
-            y: 50,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out"
-        })
-        .from(bottomRef.current, {
-            y: 30,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power3.out"
-        });
+        );
+        gsap.fromTo(
+            topRef.current,
+            {
+                y: 50,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: topRef.current,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                }
+            }
+        );
+        gsap.fromTo(
+            bottomRef.current,
+            {
+                y: 30,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: bottomRef.current,
+                    start: "top 100%",
+                    toggleActions: "play none none reverse",
+                }
+            }
+        );
 
     }, []);
 
