@@ -1,139 +1,190 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
+import logoIcon from "../../assets/logo/logo.svg";
+import mappinIcon from "../../assets/logo/mappin.svg";
+import phoneIcon from "../../assets/logo/phone.svg";
+import mailIcon from "../../assets/logo/mail.svg";
+import facebookIcon from "../../assets/logo/facebook.png";
+import instagramIcon from "../../assets/logo/instagram.png";
+import linkedinIcon from "../../assets/logo/linkedin.png";
+import yputubeIcon from "../../assets/logo/youtube.png";
+import googleIcon from "../../assets/logo/googleplay.svg";
+import appleIcon from "../../assets/logo/apple.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F4F1E8] text-[#0B3C2F] pt-16 pb-6">
+    <footer className="bg-[#FBF8E9] py-12.5 md:py-25">
       <div className="container">
 
-        <div className="flex items-center justify-between">
+        <div className="flex gap-5 justify-between">
           {/* Logo + Description */}
-          <div className="w-full max-w-[384px] space-y-4">
-            <h2 className="text-3xl font-bold text-green-500">blink</h2>
+          <div className="w-full max-w-[384px]">
+            <div className="w-full max-w-27.5">
+              <Image 
+                src={logoIcon}
+                alt="logoIcon"
+                width={111}
+                height={48}
+              />
+            </div>
 
-            <p className="text-sm leading-6 max-w-md">
-              A new digital banking experience by City Bank PLC. Designed to make everyday money simpler,
-              faster, and more intuitive.
+            <p className="text-sm sm:text-base font-normal font-inter leading-6 text-[#003235] mt-4 sm:mt-6">
+              A new digital banking experience by City Bank PLC. Designed to make everyday money simpler, faster, and more intuitive.
             </p>
 
             <div>
-              <p className="font-semibold mb-2">Get the App</p>
+              <h6 className="text-sm sm:text-base font-semibold font-inter leading-6 text-[#003235] mt-4 sm:mt-5">Get the App</h6>
 
-              <div className="flex gap-3">
-                <Link href="#">
+              <div className="flex gap-3 mt-2">
+                <button className=" cursor-pointer">
                   <Image
-                    src="/google-play.png"
+                    src={googleIcon}
                     alt="Google Play"
                     width={140}
                     height={40}
                   />
-                </Link>
+                </button>
 
-                <Link href="#">
+                <button className=" cursor-pointer">
                   <Image
-                    src="/app-store.png"
+                    src={appleIcon}
                     alt="App Store"
                     width={140}
                     height={40}
                   />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
 
-          <div className=" flex-1">
+          <div className="w-full max-w-193.75 flex justify-between lg:gap-5 gap-10.5">
             {/* Product */}
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+            <div className="w-full max-w-26">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-6 sm:mb-8">Product</h6>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#">Personal</Link></li>
-                <li><Link href="#">Business</Link></li>
-                <li><Link href="#">Rewards</Link></li>
-                <li><Link href="#">Company</Link></li>
-                <li><Link href="#">Help Center</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Personal</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Business</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Rewards</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Company</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Help Center</Link></li>
               </ul>
             </div>
 
             {/* Legal */}
-            <div>
-              <h4 className="font-semibold mb-4">Legal & Regulatory</h4>
+            <div className="w-full max-w-43.5">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-6 sm:mb-8">Legal & Regulatory</h6>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#">Terms & Conditions</Link></li>
-                <li><Link href="#">Privacy Policy</Link></li>
-                <li><Link href="#">Schedule of Charges</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Terms & Conditions</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">Schedule of Charges</Link></li>
               </ul>
             </div>
 
             {/* Contact */}
-            <div>
-              <h4 className="font-semibold mb-4">Contact Us</h4>
+            <div className="w-full max-w-58.5">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-3 sm:mb-4">Contact Us</h6>
 
               <ul className="space-y-3 text-sm">
-                <li className="flex gap-2">
-                  <MapPin size={18} className="mt-1" />
-                  <span>
-                    Wisconsin Ave, Suite 700 <br />
-                    Chevy Chase, Maryland 20815
+                <li className="flex items-center gap-3">
+                  <div className="w-full max-w-6">
+                    <Image 
+                      src={mappinIcon}
+                      alt="mappinIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <span className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">
+                    Wisconsin Ave, Suite 700 Chevy Chase, Maryland 20815
                   </span>
                 </li>
 
-                <li className="flex gap-2">
-                  <Mail size={18} />
-                  <Link href="mailto:hello@blink.com.bd">
+                <li className="flex items-center gap-3">
+                  <div className="w-full max-w-6">
+                    <Image 
+                      src={mailIcon}
+                      alt="mailIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <Link href="mailto:hello@blink.com.bd" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">
                     hello@blink.com.bd
                   </Link>
                 </li>
 
-                <li className="flex gap-2">
-                  <Phone size={18} />
-                  <Link href="tel:16234">
+                <li className="flex items-center gap-3">
+                  <div className="w-full max-w-6">
+                    <Image 
+                      src={phoneIcon}
+                      alt="phoneIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <Link href="tel:16234" className="text-sm font-normal font-roboto leading-3.5 text-[#01292C]">
                     16234 (24/7 Hotline)
                   </Link>
                 </li>
               </ul>
+            </div>
+            {/* Social */}
+            <div className="w-full max-w-34.25">
+              <h6 className="text-base sm:text-lg font-roboto font-bold sm:leading-4.5 text-[#01292C] mb-2">Follow us</h6>
 
-              {/* Social */}
-              <div className="mt-4">
-                <p className="font-semibold mb-2">Follow us</p>
+              <div className="flex gap-3">
+                <Link href="#"
+                  target="_blank"
+                >
+                  <div className="h-6 w-6">
+                    <Image 
+                      src={facebookIcon}
+                      alt="facebookIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </Link>
 
-                <div className="flex gap-3">
-                  <Link
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-green-100 hover:text-green-600 transition"
-                  >
-                    fb
-                  </Link>
+                <Link href="#"
+                  target="_blank"
+                >
+                  <div className="h-6 w-6">
+                    <Image 
+                      src={instagramIcon}
+                      alt="instagramIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </Link>
 
-                  <Link
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-green-100 hover:text-green-600 transition"
-                  >
-                    in
-                  </Link>
+                <Link href="#"
+                  target="_blank"
+                >
+                  <div className="h-6 w-6">
+                    <Image 
+                      src={linkedinIcon}
+                      alt="linkedinIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </Link>
 
-                  <Link
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-green-100 hover:text-green-600 transition"
-                  >
-                    link
-                  </Link>
-
-                  <Link
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-green-100 hover:text-green-600 transition"
-                  >
-                    ypu
-                  </Link>
-                </div>
+                <Link href="#"
+                  target="_blank"
+                >
+                  <div className="h-6 w-6">
+                    <Image 
+                      src={yputubeIcon}
+                      alt="yputubeIcon"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
