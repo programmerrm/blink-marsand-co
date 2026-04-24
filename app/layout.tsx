@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat, Roboto } from "next/font/google";
+import { Inter, Montserrat, Roboto, Blinker } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/smoothScroll/smoothScroll";
 
@@ -17,6 +17,11 @@ const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
 });
+const blinker = Blinker({
+  subsets: ["latin"],
+  weight: ["100","200","300","400","600","700","800","900"],
+  variable: "--font-blinker",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body
-        className={`${inter.variable} ${montserrat.variable} ${roboto.variable} min-h-full`}
+        className={`${inter.variable} ${montserrat.variable} ${roboto.variable} ${blinker.variable} min-h-full`}
       >
         <SmoothScroll>
           {children}
