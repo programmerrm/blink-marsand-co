@@ -1,19 +1,128 @@
+"use client";
+
+import gsap from "gsap";
 import Image from "next/image";
-import moveMoney from "../../assets/image/move-money-bg.png";
-import bankWith from "../../assets/image/bank-with-bg.png";
+import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import buildBg from "../../assets/image/built-bg.png";
+import bankWith from "../../assets/image/bank-with-bg.png";
+import moveMoney from "../../assets/image/move-money-bg.png";
 import handWithPhone from "../../assets/image/hand-with-phone.png";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Security() {
+    const headingRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!headingRef.current) return;
+
+        const ctx = gsap.context(() => {
+
+            // HEADING
+            gsap.fromTo(
+                headingRef.current,
+                { y: 80, opacity: 0, scale: 0.85 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: "top 100%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+            const cards = gsap.utils.toArray<HTMLElement>(".card-item");
+
+            const animateCard = (card: HTMLElement, start: string) => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: card,
+                        start,
+                        toggleActions: "play none none reverse",
+                    }
+                });
+
+                // CARD
+                tl.fromTo(card,
+                    { y: 100, opacity: 0, scale: 0.9 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.7,
+                        ease: "power3.out"
+                    }
+                )
+
+                    // H3
+                    .fromTo(
+                        card.querySelectorAll("h3"),
+                        { y: 30, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        },
+                        "-=0.2"
+                    )
+
+                    // P
+                    .fromTo(
+                        card.querySelectorAll("p"),
+                        { y: 30, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        },
+                        "-=0.3"
+                    );
+            };
+
+            ScrollTrigger.matchMedia({
+
+                // DESKTOP 
+                "(min-width: 768px)": () => {
+                    animateCard(cards[2], "top 85%");
+                    animateCard(cards[1], "top 80%");
+                    animateCard(cards[0], "top 75%");
+                },
+
+                // MOBILE
+                "(max-width: 767px)": () => {
+                    animateCard(cards[0], "top 80%");
+                    animateCard(cards[1], "top 75%");
+                    animateCard(cards[2], "top 70%");
+                }
+
+            });
+
+        });
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section className="py-6.25 lg:py-12.5">
             <div className="container">
-                <div className="w-full max-w-145 text-center mx-auto">
+
+                <div ref={headingRef} className="w-full max-w-145 text-center mx-auto">
                     <h2 className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent mb-5"><span className="text-[#004737]">What Blink Will</span> <span className="">Unlock</span></h2>
                     <p className="text-base lg:text-xl font-normal opacity-80">Unlock convenience and efficiency with standout features, revolutionizing your banking journey.</p>
                 </div>
-                <div className="grid sm:grid-cols-3 items-end gap-4 xl:gap-8.25 mt-14">
-                    <div className="rounded-[20px] bg-[#3DC2D5] relative overflow-hidden">
-                        
+
+                <div className="grid sm:grid-cols-3 items-end gap-4 xl:gap-8.25 mt-14 card-wrapper">
+
+                    <div className="rounded-[20px] bg-[#3DC2D5] relative overflow-hidden card-item">
+
                         <div className="pt-5 xl:pt-10 px-5 xl:px-10 -mb-5">
                             <h3 className="font-normal font-blinker leading-5 lg:leading-6 xl:leading-8">Move money with ease</h3>
                             <p className="text-lg xl:text-2xl leading-4.5 xl:leading-6 font-blinker font-normal text-[#004B51] mt-4">Send, receive, pay, and manage your money from one smart app</p>
@@ -28,7 +137,8 @@ export default function Security() {
                             />
                         </div>
                     </div>
-                    <div className="rounded-[20px] relative overflow-hidden">
+
+                    <div className="rounded-[20px] relative overflow-hidden card-item">
                         <div className="w-full sm:max-w-104.5 h-80 sm:h-full">
                             <Image
                                 src={bankWith}
@@ -61,8 +171,8 @@ export default function Security() {
                             </div>
                         </div>
                     </div>
-    
-                    <div className="rounded-[20px] relative overflow-hidden">
+
+                    <div className="rounded-[20px] relative overflow-hidden card-item">
                         <div className="w-full h-67.5 sm:h-full">
                             <Image
                                 src={buildBg}
@@ -77,8 +187,10 @@ export default function Security() {
                             <p className="text-lg xl:text-2xl leading-4.5 xl:leading-6 font-blinker font-normal text-white mt-4">Security, reliability, and the confidence of City Bank PLC behind every step</p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
-    )
+    );
 }
+
