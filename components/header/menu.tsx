@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import erroDown from "../../assets/icon/errow-down.png";
 
 export default function Menu({ mobile = false }: { mobile?: boolean }) {
+     const menuRef = useRef<HTMLUListElement>(null);
     const [openMenu, setOpenMenu] = useState<number | null>(null);
 
     const toggleMenu = (id: number) => {
@@ -19,11 +21,25 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
         { id: 4, title: "Cards", links: ["Debit Card", "Credit Card"] },
     ];
 
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from(".menu-item", {
+                y: -50,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.15,
+            });
+        }, menuRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <ul className={mobile ? "flex flex-col gap-3" : "flex items-center gap-2 xl:gap-4"}>
+        <ul ref={menuRef} className={mobile ? "flex flex-col gap-3" : "flex items-center gap-2 xl:gap-4"}>
 
             {items.map((item) => (
-                <li key={item.id} className="relative group">
+                <li key={item.id} className="relative group menu-item">
 
                     {/* trigger */}
                     <Link

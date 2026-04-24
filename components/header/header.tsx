@@ -1,20 +1,50 @@
 "use client";
 
+import gsap from "gsap";
 import Menu from "./menu";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LogoIcon from "../../assets/logo/logo.svg";
 import { Menu as HamburgerIcon, X } from "lucide-react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const rightSideRef = useRef<HTMLDivElement>(null);
     const [active, setActive] = useState("personal");
 
     const gradient = "bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]";
 
+
+    useEffect(() => {
+        if (!rightSideRef.current) return;
+
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                ".right-item",
+                {
+                    y: -50,
+                    opacity: 0,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.7,
+                    ease: "power3.out",
+                    stagger: 0.15,
+                }
+            );
+        }, rightSideRef);
+
+        return () => ctx.revert();
+    }, []);
+
+
     return (
-        <header className="py-2 sm:py-4 md:py-6 lg:py-8">
+        <header className="py-2 sm:py-4 md:py-6 lg:py-8 transition-all">
             <div className="container">
                 <div className="flex items-center justify-between gap-2">
 
@@ -56,7 +86,7 @@ export default function Header() {
                     </div>
 
                     {/* RIGHT SIDE */}
-                    <div className="flex items-center gap-2 2xl:gap-4.5">
+                    <div ref={rightSideRef} className="flex items-center gap-2 2xl:gap-4.5">
 
                         {/* DESKTOP MENU */}
                         <div className="hidden lg:block">
@@ -65,7 +95,7 @@ export default function Header() {
 
                         {/* LANGUAGE (UNCHANGED) */}
 
-                        <div className="flex items-center">
+                        <div className="flex items-center right-item">
                             <div className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] pl-px py-px rounded-l-full">
                                 <div className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] group-hover:bg-white rounded-l-full">
                                     <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-white px-2 py-1 cursor-pointer">EN</button>
@@ -81,7 +111,7 @@ export default function Header() {
 
                         {/* DOWNLOAD (UNCHANGED) */}
 
-                        <div className="hidden lg:block w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full">
+                        <div className="hidden lg:block w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full right-item">
                             <div className="w-fit flex items-center bg-white rounded-full">
                                 <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">Download App</button>
                             </div>
