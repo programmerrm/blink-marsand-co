@@ -33,7 +33,7 @@ export default function BannerSection() {
                     scrollTrigger: {
                         trigger: rightSideRef.current,
                         start: "top 65%",
-                        toggleActions: "play none none reverse",
+                        toggleActions: "play none none none",
                     },
                 }
             );
@@ -51,7 +51,7 @@ export default function BannerSection() {
                     scrollTrigger: {
                         trigger: leftSideRef.current,
                         start: "top 65%",
-                        toggleActions: "play none none reverse",
+                        toggleActions: "play none none none",
                     },
                 }
             );
