@@ -5,6 +5,7 @@ import Image from "next/image";
 import LogoIcon from "../../assets/logo/logo.svg";
 import Menu from "./menu";
 import { Menu as HamburgerIcon, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -16,14 +17,14 @@ export default function Header() {
 
                     {/* LEFT SIDE (UNCHANGED EXACT COPY) */}
                     <div className="w-full max-w-70 xl:max-w-100 2xl:max-w-106.75 flex items-center justify-between gap-4 xl:gap-12">
-                        <div className="w-full max-w-20 xl:max-w-27.5">
+                        <Link href="/" className="w-full max-w-20 xl:max-w-27.5">
                             <Image
                                 src={LogoIcon}
                                 alt="LogoIcon"
                                 width={111}
                                 height={48}
                             />
-                        </div>
+                        </Link>
 
                         <div className="hidden lg:block w-full max-w-48 xl:max-w-67 bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.675),rgba(255,255,255,0.675))] p-px rounded-full">
                             <div className="w-full flex items-center bg-white p-px xl:p-1 rounded-full">
