@@ -32,7 +32,7 @@ export default function BannerSection() {
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: rightSideRef.current,
-                        start: "top 65%",
+                        start: "top 80%",
                         toggleActions: "play none none none",
                     },
                 }
@@ -50,7 +50,7 @@ export default function BannerSection() {
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: leftSideRef.current,
-                        start: "top 65%",
+                        start: "top 80%",
                         toggleActions: "play none none none",
                     },
                 }
