@@ -43,19 +43,22 @@ export default function Company() {
                 }
             );
             gsap.fromTo(
-                rightSideRef.current,
+                ".logo-item",
                 {
-                    y: 80,
-                    opacity: 0
+                    y: 60,
+                    opacity: 0,
+                    scale: 0.9
                 },
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 1.5,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: rightSideRef.current,
-                        start: "top 100%",
+                        start: "top 90%",
                         toggleActions: "play none none reverse",
                     },
                 }
@@ -80,48 +83,52 @@ export default function Company() {
                     <div ref={rightSideRef} className="flex items-center justify-center gap-3 lg:gap-6 w-full md:max-w-201.25 relative">
                         <div className="absolute top-0 -left-11 xl:-left-7 2xl:left-0 w-17 h-full bg-white blur-[10px]"></div>
                         <div className="absolute top-0 -right-4 sm:-right-5 xl:-right-10 2xl:right-0 w-7 sm:w-10 xl:w-20 h-full bg-white blur-[5px]"></div>
-                        <Link href="#">
+                        <Link className="logo-item" href="#">
                             <Image
                                 src={bkashImage}
                                 alt="bkash Image"
                                 width={94}
                                 height={40}
+                                className="transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105"
                             />
                         </Link>
-                        <Link href="#">
+                        <Link className="logo-item" href="#">
                             <Image
                                 src={nagadImage}
                                 alt="nagad Image"
                                 width={120}
                                 height={40}
+                                className="transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105"
                             />
                         </Link>
-                        <Link href="#">
+                        <Link className="logo-item" href="#">
                             <Image
                                 src={metlifeImage}
                                 alt="metlife Image"
                                 width={160}
                                 height={40}
+                                className="transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105"
                             />
                         </Link>
-                        <Link href="#">
+                        <Link className="logo-item" href="#">
                             <Image
                                 src={bangladeshBank}
                                 alt="bangladesh Bank"
                                 width={60}
                                 height={60}
+                                className="transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105"
                             />
                         </Link>
-                        <Link href="#">
+                        <Link className="logo-item" href="#">
                             <Image
                                 src={americanImage}
                                 alt="american Image"
                                 width={168}
                                 height={48}
+                                className="transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-105"
                             />
                         </Link>
                     </div>
-
 
                 </div>
             </div>
