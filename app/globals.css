@@ -1,54 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #004737;
+    --background: #FFFFFF;
+    --foreground: #004737;
 }
 
 @theme {
-  --font-inter: 'Inter', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
 }
 
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat);
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-montserrat);
 }
 
-@layer base{
-    h1,h2,h3,h4,h5,h6{
+@layer base {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: var(--font-montserrat), serif;
     }
 
-    h1{
-        @apply text-3xl md:text-4xl lg:text-[54px] xl:text-[64px] lg:leading-18.25 font-semibold text-[#01292C] 
+    h1 {
+        @apply text-3xl md:text-4xl lg:text-[54px] xl:text-[64px] lg:leading-18.25 font-semibold text-[#01292C]
     }
-    h2{
+
+    h2 {
         @apply text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-12 font-semibold
     }
-    h3{
+
+    h3 {
         @apply text-xl lg:text-[40px] lg:leading-15 font-semibold
     }
-    h4{
-        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold 
+
+    h4 {
+        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold
     }
-    h5{
+
+    h5 {
         @apply text-sm sm:text-xl lg:leading-7.5 font-semibold
     }
-    p{
+
+    p {
         @apply text-base sm:text-xl md:leading-7.5 font-medium
     }
 }
 
 @utility container {
-  margin-inline: auto;
-  padding-inline: 1rem;
-  width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    width: 100%;
 
-  @media (min-width: 84.5rem) {
-    max-width: 84.5rem;
-  }
+    @media (min-width: 84.5rem) {
+        max-width: 84.5rem;
+    }
+}
+
+@keyframes floatArrow {
+    0% {
+        transform: translateX(0) scale(1);
+    }
+
+    50% {
+        transform: translateX(6px) scale(1.05);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+.arrow-motion {
+    animation: floatArrow 1.2s ease-in-out infinite;
+}
+
+.group:hover .arrow-motion {
+    animation-play-state: paused;
 }
