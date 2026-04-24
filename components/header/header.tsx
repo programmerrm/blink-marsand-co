@@ -18,7 +18,6 @@ export default function Header() {
 
     const gradient = "bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]";
 
-
     useEffect(() => {
         if (!rightSideRef.current) return;
 
@@ -41,7 +40,6 @@ export default function Header() {
 
         return () => ctx.revert();
     }, []);
-
 
     return (
         <header className="py-2 sm:py-4 md:py-6 lg:py-8 transition-all">
