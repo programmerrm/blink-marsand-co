@@ -126,16 +126,16 @@ export default function BannerSection() {
                             <div className="flex items-center gap-4 mt-8 left-item">
                                 <Link
                                     href={"/"}
-                                    className="relative overflow-hidden group w-fit px-4 xl:px-6 py-2 xl:py-3.5 text-sm xl:text-base font-semibold text-black rounded-full bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] transition-all duration-500 hover:-translate-y-1 hover:shadow-lg"
+                                    className="relative overflow-hidden group w-fit px-4 xl:px-6 py-2 xl:py-3.5 text-sm xl:text-base font-semibold text-black rounded-full bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] transition-all duration-1000 hover:-translate-y-1 hover:shadow-lg"
                                 >
                                     <span className="relative z-10">Download App</span>
-                                    <span className="absolute inset-0 bg-white/20 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700 skew-x-12" />
+                                    <span className="absolute inset-0 bg-white/20 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 skew-x-12" />
                                 </Link>
                                 <Link
                                     href={"/"}
                                     className="relative overflow-hidden group w-fit px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base font-semibold text-[#01292C] rounded-full border border-[#01292C] transition-all duration-500 hover:-translate-y-1 hover:shadow-md"
                                 >
-                                    <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                                    <span className="relative z-10 group-hover:text-white transition-colors duration-500">
                                         Explore Blink
                                     </span>
                                     <span className="absolute inset-0 scale-x-0 origin-left bg-[linear-gradient(90deg,#3AC2D6,#59C4AB,#7EC779,#99CA54,#A9CB3E,#B0CC36)] group-hover:scale-x-100 transition-transform duration-500" />
