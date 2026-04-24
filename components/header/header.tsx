@@ -1,43 +1,61 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import LogoIcon from "../../assets/logo/logo.svg";
 import Menu from "./menu";
-import { Menu as HamburgerIcon, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import LogoIcon from "../../assets/logo/logo.svg";
+import { Menu as HamburgerIcon, X } from "lucide-react";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const [active, setActive] = useState("personal");
+
+    const gradient = "bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]";
 
     return (
         <header className="py-2 sm:py-4 md:py-6 lg:py-8">
             <div className="container">
                 <div className="flex items-center justify-between gap-2">
 
-                    {/* LEFT SIDE (UNCHANGED EXACT COPY) */}
+                    {/* LEFT SIDE */}
                     <div className="w-full max-w-70 xl:max-w-100 2xl:max-w-106.75 flex items-center justify-between gap-4 xl:gap-12">
-                        <Link href="/" className="w-full max-w-20 xl:max-w-27.5">
+                        <Link href="/" className="w-full max-w-20 xl:max-w-27.5 group">
                             <Image
                                 src={LogoIcon}
                                 alt="LogoIcon"
                                 width={111}
                                 height={48}
+                                className="transition-all duration-500 ease-out
+        group-hover:scale-105 group-hover:-translate-y-1"
                             />
                         </Link>
 
                         <div className="hidden lg:block w-full max-w-48 xl:max-w-67 bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.675),rgba(255,255,255,0.675))] p-px rounded-full">
                             <div className="w-full flex items-center bg-white p-px xl:p-1 rounded-full">
-                                <button className="w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold text-white cursor-pointer transition-all rounded-full bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
+
+                                <button
+                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full ${active === "personal" ? `${gradient} text-white` : "bg-transparent text-black"}`}
+                                    type="button"
+                                    onMouseEnter={() => setActive("personal")}
+                                >
                                     Personal
                                 </button>
-                                <button className="w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
+
+                                <button
+                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full ${active === "business" ? `${gradient} text-white` : "bg-transparent text-black"}`}
+                                    type="button"
+                                    onMouseEnter={() => setActive("business")}
+                                >
                                     Business
                                 </button>
+
                             </div>
+
                         </div>
                     </div>
 
+                    {/* RIGHT SIDE */}
                     <div className="flex items-center gap-2 2xl:gap-4.5">
 
                         {/* DESKTOP MENU */}
