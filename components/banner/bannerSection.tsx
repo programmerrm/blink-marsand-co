@@ -104,7 +104,7 @@ export default function BannerSection() {
                             </ul>
                         </div>
                         {/* RIGHT SIDE */}
-                        <div ref={rightSideRef} className="xl:pr-16">
+                        <div ref={rightSideRef} className="xl:pr-16 flex items-end justify-end">
                             <div className="w-full md:max-w-103.75 flex items-center justify-center">
                                 <Image
                                     src={iphoneImage}
