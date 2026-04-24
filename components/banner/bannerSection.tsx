@@ -61,6 +61,7 @@ export default function BannerSection() {
                     },
                 }
             );
+            
             // CHAR LOOP ANIMATION HEADING
             // const animate = () => {
             //     gsap.fromTo(
@@ -79,6 +80,7 @@ export default function BannerSection() {
             //     );
             // };
             // animate();
+
             // CHAR ANIMATION (ONLY ONCE)
             gsap.fromTo(
                 chars,
