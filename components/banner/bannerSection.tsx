@@ -62,23 +62,40 @@ export default function BannerSection() {
                 }
             );
             // CHAR LOOP ANIMATION HEADING
-            const animate = () => {
-                gsap.fromTo(
-                    chars,
-                    { y: 30, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: "power4.out",
-                        stagger: 0.04,
-                        onComplete: () => {
-                            gsap.delayedCall(1, animate);
-                        },
-                    }
-                );
-            };
-            animate();
+            // const animate = () => {
+            //     gsap.fromTo(
+            //         chars,
+            //         { y: 30, opacity: 0 },
+            //         {
+            //             y: 0,
+            //             opacity: 1,
+            //             duration: 0.8,
+            //             ease: "power4.out",
+            //             stagger: 0.04,
+            //             onComplete: () => {
+            //                 gsap.delayedCall(1, animate);
+            //             },
+            //         }
+            //     );
+            // };
+            // animate();
+            // CHAR ANIMATION (ONLY ONCE)
+            gsap.fromTo(
+                chars,
+                { y: 30, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power4.out",
+                    stagger: 0.04,
+                    scrollTrigger: {
+                        trigger: headingRef.current,
+                        start: "top 80%",
+                        toggleActions: "play none none none",
+                    },
+                }
+            );
         });
 
         return () => {
