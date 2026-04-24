@@ -39,98 +39,68 @@ export default function Security() {
 
             const cards = gsap.utils.toArray<HTMLElement>(".card-item");
 
+            const animateCard = (card: HTMLElement, start: string) => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: card,
+                        start,
+                        toggleActions: "play none none reverse",
+                    }
+                });
+
+                // CARD
+                tl.fromTo(card,
+                    { y: 100, opacity: 0, scale: 0.9 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.7,
+                        ease: "power3.out"
+                    }
+                )
+
+                    // H3
+                    .fromTo(
+                        card.querySelectorAll("h3"),
+                        { y: 30, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        },
+                        "-=0.2"
+                    )
+
+                    // P
+                    .fromTo(
+                        card.querySelectorAll("p"),
+                        { y: 30, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        },
+                        "-=0.3"
+                    );
+            };
+
             ScrollTrigger.matchMedia({
 
-                // DESKTOP
+                // DESKTOP 
                 "(min-width: 768px)": () => {
-                    gsap.fromTo(cards[2],
-                        { y: 100, opacity: 0, scale: 0.9 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.8,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: cards[2],
-                                start: "top 85%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
-                    gsap.fromTo(cards[1],
-                        { y: 100, opacity: 0, scale: 0.9 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.8,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: cards[1],
-                                start: "top 80%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
-                    gsap.fromTo(cards[0],
-                        { y: 100, opacity: 0, scale: 0.9 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.8,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: cards[0],
-                                start: "top 75%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
+                    animateCard(cards[2], "top 85%");
+                    animateCard(cards[1], "top 80%");
+                    animateCard(cards[0], "top 75%");
                 },
 
                 // MOBILE
                 "(max-width: 767px)": () => {
-
-                    gsap.fromTo(cards[0],
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scrollTrigger: {
-                                trigger: cards[0],
-                                start: "top 80%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
-
-                    gsap.fromTo(cards[1],
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scrollTrigger: {
-                                trigger: cards[1],
-                                start: "top 75%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
-
-                    gsap.fromTo(cards[2],
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            scrollTrigger: {
-                                trigger: cards[2],
-                                start: "top 70%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
-                    );
+                    animateCard(cards[0], "top 80%");
+                    animateCard(cards[1], "top 75%");
+                    animateCard(cards[2], "top 70%");
                 }
 
             });
