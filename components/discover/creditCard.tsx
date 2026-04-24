@@ -4,14 +4,14 @@ import MasterCard2 from "../../assets/image/master-card2.svg";
 import MasterCard3 from "../../assets/image/master-card3.svg";
 export default function CreditCard() {
     return (
-        <div className=" bg-[#FBF8E9] rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
+        <div className=" bg-[#FBF8E9] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
             <div className="order-2 lg:order-1 w-full lg:max-w-156.75 p-6 lg:p-12">
                 <h3 className=" leading-8 sm:leading-10 xl:leading-15">Manage All Your Credit Cards In One Place.</h3>
                 <p className="text-base lg:text-xl font-normal opacity-80 mt-5">Keep track of multiple credit cards effortlessly within the Blink app. Monitor balances, track transactions, and stay on top of payments without switching between different accounts.</p>
 
                 <div className="w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full mt-10 sm:mt-26.5">
                     <div className="w-37.5 flex items-center bg-[#FBF8E9] rounded-full">
-                        <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">Explore</button>
+                        <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-black hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">Explore</button>
                     </div>
                 </div>
             </div>
