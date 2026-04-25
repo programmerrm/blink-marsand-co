@@ -1,5 +1,6 @@
 import BannarSection from "@/components/banner/bannerSection";
 import Company from "@/components/company/company";
+import Customer from "@/components/customer/customerSection";
 import Discover from "@/components/discover/discoverSection";
 import FAQ from "@/components/faq/faqSection";
 import Footer from "@/components/footer/footer";
@@ -9,17 +10,18 @@ import Security from "@/components/security/securitySection";
 
 export default function Home() {
   return (
-    <>
+    <main>
 
       <Header />
       <BannarSection />
       <Company />
       <Security />
       <Discover />
+      <Customer />
       <FAQ />
       <ReadyBlink />
       <Footer />
 
-    </>
+    </main>
   );
 }

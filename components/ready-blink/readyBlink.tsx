@@ -5,15 +5,15 @@ import AppleButton from "../../assets/image/download-button-apple.svg";
 import BlinkBg from "../../assets/image/blink-bg.png";
 export default function ReadyBlink(){
     return(
-        <section className=" overflow-hidden">
+        <section className=" overflow-hidden bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative">
             <div className="container">
-                <div className="pl-6 lg:pl-30 xl:pl-51.75 pr-6 lg:pr-30 xl:pr-50.75 flex flex-col sm:flex-row items-center gap-5 md:gap-10 bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative">
-                    <div className=" absolute -top-22 -left-24 right-0">
+                <div className="pl-6 lg:pl-30 xl:pl-51.75 pr-6 lg:pr-30 xl:pr-50.75 flex flex-col sm:flex-row items-center gap-5 md:gap-10  ">
+                    <div className="absolute top-0 -left-38 right-0 h-95 2xl:h-116">
                         <Image 
                             src={BlinkBg}
                             alt="Blink Bg"
-                            width={1701}
-                            height={1661}
+                            fill
+                            className="object-cover"
                         />
                     </div>
                     <div className="mt-8 md:mt-15">
