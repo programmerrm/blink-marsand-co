@@ -10,8 +10,8 @@ import stepsShape from "@/assets/image/steps-shape.png";
 
 function Steps() {
     return (
-        <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative py-30">
-            <div className="container grid grid-cols-2">
+        <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative py-8 lg:py-30">
+            <div className="container grid grid-cols-1 gap-4 lg:grid-cols-2">
                 {/* Section title text */}
                 <div className="text-white mt-8">
                     <h2>Get Started In Just 3 simple Steps.</h2>
@@ -21,7 +21,7 @@ function Steps() {
                     </p>
                 </div>
                 {/* Step cards container */}
-                <div>
+                <div className="relative z-1">
                     {/* step 1 */}
                     <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
@@ -31,7 +31,7 @@ function Steps() {
                         <p className="text-lg text-[#004737CC] font-normal mt-5">
                             Create your Blink account and unlock a world of financial possibilities.
                         </p>
-                        <div className="max-w-82 mx-auto px-4 pt-4 bg-white mt-15 rounded-t-lg pb-4">
+                        <div className="max-w-82 mx-auto px-4 pt-4 bg-white mt-4 lg:mt-15 rounded-t-lg pb-4">
                             <h5 className="text-[1.375rem] font-blinker text-[#1F232C]">
                                 Enter mobile number
                             </h5>
@@ -76,7 +76,7 @@ function Steps() {
                             Link all your financial accounts effortlessly to Blink for comprehensive
                             management.
                         </p>
-                        <div className="flex justify-between max-w-2/3 mx-auto mt-23 relative">
+                        <div className="flex justify-between lg:max-w-2/3 mx-auto mt-23 relative gap-4">
                             <Image
                                 src={bankIcon}
                                 alt="back icon"
@@ -148,7 +148,7 @@ function Steps() {
                 alt="shape"
                 width={1028}
                 height={1025}
-                className="absolute left-0 bottom-0"
+                className="absolute left-0 bottom-0 w-full lg:w-auto"
             />
         </section>
     );
