@@ -110,33 +110,35 @@ function Steps() {
                             Take control of your finances with Blink{"'"}s intuitive features and
                             personalized tools.
                         </p>
-                        <div className="ps-3 pb-3 bg-white rounded-2xl mt-12.75 shadow-md">
-                            <div className="flex justify-between">
-                                <Image
-                                    src={trophyIcon}
-                                    alt="trophy"
-                                    width={20}
-                                    height={20}
-                                    className="w-5 h-5 mt-2"
-                                />
-                                <div className="flex bg-[#FFF8D9] py-1 px-2 rounded-bl-2xl border-[#FDD86A] border-l border-b items-center gap-1">
-                                    <Image src={coinIcon} alt="coin" width={20} height={20} />
-                                    <span className="font-semibold ">2000</span>
+                        <div className="relative">
+                            <div className="ps-3 pb-3 bg-white rounded-2xl mt-12.75 shadow-md relative z-3">
+                                <div className="flex justify-between">
+                                    <Image
+                                        src={trophyIcon}
+                                        alt="trophy"
+                                        width={20}
+                                        height={20}
+                                        className="w-5 h-5 mt-2"
+                                    />
+                                    <div className="flex bg-[#FFF8D9] py-1 px-2 rounded-bl-2xl border-[#FDD86A] border-l border-b items-center gap-1">
+                                        <Image src={coinIcon} alt="coin" width={20} height={20} />
+                                        <span className="font-semibold ">2000</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-lg font-semibold font-blinker text-[#1F232C]">
+                                        Add money ৳1,000
+                                    </h4>
+                                    <p className="text-xs font-blinker leading-normal">
+                                        Lorem ipsum dolor sit amet
+                                    </p>
+                                    <p className="text-[#A97926] text-[0.625rem] leading-normal">
+                                        3d 15h 34m left
+                                    </p>
                                 </div>
                             </div>
-                            <div className="relative">
-                                <h4 className="text-lg font-semibold font-blinker text-[#1F232C]">
-                                    Add money ৳1,000
-                                </h4>
-                                <p className="text-xs font-blinker leading-normal">
-                                    Lorem ipsum dolor sit amet
-                                </p>
-                                <p className="text-[#A97926] text-[0.625rem] leading-normal">
-                                    3d 15h 34m left
-                                </p>
-                                <span className="absolute -bottom-6 w-[95%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl shadow-md"></span>
-                                <span className="absolute -bottom-8 w-[88%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl shadow-md"></span>
-                            </div>
+                            <span className="absolute -bottom-4 w-[95%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl z-2 shadow-glow"></span>
+                            <span className="absolute -bottom-8 w-[88%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl shadow-md z-1"></span>
                         </div>
                     </div>
                 </div>
