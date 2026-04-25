@@ -144,9 +144,9 @@ export default function Header() {
                                     </button>
                                 </div>
                             </div>
-                            <div className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] pr-px py-px rounded-tr-full rounded-br-full">
-                                <div className="bg-white hover:bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] rounded-tr-full rounded-br-full transition-all">
-                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-[#01292C] px-2 p-1 cursor-pointer hover:text-white transition-all">
+                            <div className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] pr-px py-px rounded-tr-full rounded-br-full duration-300">
+                                <div className="bg-white hover:bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] rounded-tr-full rounded-br-full transition-all duration-300">
+                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-[#01292C] px-2 p-1 cursor-pointer hover:text-white transition-all duration-300">
                                         বাং
                                     </button>
                                 </div>
@@ -155,9 +155,9 @@ export default function Header() {
 
                         {/* DOWNLOAD (UNCHANGED) */}
 
-                        <div className="hidden lg:block w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full right-item">
-                            <div className="w-fit flex items-center bg-white rounded-full">
-                                <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
+                        <div className="hidden lg:block w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full right-item duration-300">
+                            <div className="w-fit flex items-center bg-white rounded-full duration-300">
+                                <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all duration-300 rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
                                     Download App
                                 </button>
                             </div>
