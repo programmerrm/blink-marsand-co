@@ -10,74 +10,74 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function LoansCard() {
     const sectionRef = useRef<HTMLDivElement>(null);
-        const leftSideRef = useRef<HTMLDivElement>(null);
-        const headingRef = useRef<HTMLHeadingElement>(null);
-        const textRef = useRef<HTMLParagraphElement>(null);
-        const buttonRef = useRef<HTMLDivElement>(null);
-    
-        // SECTION ANIMATION
-        useEffect(() => {
-            const ctx = gsap.context(() => {
-                gsap.fromTo(
-                    sectionRef.current,
-                    { y: 80, opacity: 0, scale: 0.85 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        duration: 1.2,
-                        ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: sectionRef.current,
-                            start: "top 90%",
-                            toggleActions: "play none none reverse",
-                        },
-                    }
-                );
-            }, sectionRef);
-    
-            return () => ctx.revert();
-        }, []);
-    
-        // LEFT SIDE STAGGER ANIMATION
-        useEffect(() => {
-            const ctx = gsap.context(() => {
-                const tl = gsap.timeline({
+    const leftSideRef = useRef<HTMLDivElement>(null);
+    const headingRef = useRef<HTMLHeadingElement>(null);
+    const textRef = useRef<HTMLParagraphElement>(null);
+    const buttonRef = useRef<HTMLDivElement>(null);
+
+    // SECTION ANIMATION
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                sectionRef.current,
+                { y: 80, opacity: 0, scale: 0.85 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
                     scrollTrigger: {
-                        trigger: leftSideRef.current,
+                        trigger: sectionRef.current,
                         start: "top 90%",
                         toggleActions: "play none none reverse",
-                    }
-                });
-    
-                tl.from(leftSideRef.current, {
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out"
-                });
-    
-                tl.from(headingRef.current, {
-                    y: 40,
-                    opacity: 0,
-                    duration: 0.6
-                }, "-=0.3");
-    
-                tl.from(textRef.current, {
-                    y: 40,
-                    opacity: 0,
-                    duration: 0.6
-                }, "-=0.3");
-    
-                tl.from(buttonRef.current, {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.5
-                }, "-=0.2");
-            }, leftSideRef);
-    
-            return () => ctx.revert();
-        }, []);
+                    },
+                }
+            );
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    // LEFT SIDE STAGGER ANIMATION
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: leftSideRef.current,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse",
+                }
+            });
+
+            tl.from(leftSideRef.current, {
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+
+            tl.from(headingRef.current, {
+                y: 40,
+                opacity: 0,
+                duration: 0.6
+            }, "-=0.3");
+
+            tl.from(textRef.current, {
+                y: 40,
+                opacity: 0,
+                duration: 0.6
+            }, "-=0.3");
+
+            tl.from(buttonRef.current, {
+                y: 30,
+                opacity: 0,
+                duration: 0.5
+            }, "-=0.2");
+        }, leftSideRef);
+
+        return () => ctx.revert();
+    }, []);
     return (
         <div ref={sectionRef} className=" bg-[#004737] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
             <div ref={leftSideRef} className="order-2 lg:order-1 w-full lg:max-w-2xl pr-6 lg:pr-0 py-6 lg:py-12 pl-6 lg:pl-12">
@@ -101,8 +101,5 @@ export default function LoansCard() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
-
-
