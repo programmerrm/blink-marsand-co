@@ -80,8 +80,8 @@ export default function Company() {
                         </p>
                     </div>
                     <div ref={rightSideRef} className="flex items-center justify-center gap-3 lg:gap-6 w-full md:max-w-201.25 relative">
-                        <div className="absolute top-0 -left-11 xl:-left-7 2xl:left-0 w-17 h-full bg-white blur-[10px]"></div>
-                        <div className="absolute top-0 -right-4 sm:-right-5 xl:-right-10 2xl:right-0 w-7 sm:w-10 xl:w-20 h-full bg-white blur-[5px]"></div>
+                        <div className="absolute top-0 -left-11 xl:-left-7 2xl:left-0 w-17 h-full bg-white blur-md z-20 pointer-events-none"></div>
+                        <div className="absolute top-0 -right-4 sm:-right-5 xl:-right-10 2xl:right-0 w-7 sm:w-10 xl:w-20 h-full bg-white blur-md z-20 pointer-events-none"></div>
                         <Link className="logo-item" href="#">
                             <Image
                                 src={bkashImage}
