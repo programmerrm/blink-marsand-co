@@ -2,9 +2,20 @@ import Image from "next/image";
 import BillPaymentIcon from "../../assets/icon/bill-payment.svg";
 import UploadIcon from "../../assets/icon/upload-icon.svg";
 import transferIcon from "../../assets/icon/transfer-icon.svg";
+import blinkImg2 from "../../assets/image/blink-send-money.png";
+import blinkImg3 from "../../assets/image/blink-cash.png";
+import appFeatureBg from "../../assets/image/app-feature-bg.png";
 export default function AppFeature() {
     return (
-        <section className="py-10 md:py-12.5 lg:py-25">
+        <section className="py-10 md:py-12.5 lg:py-25 relative">
+            {/* <div className="absolute top-0 left-0 right-0">
+                <Image 
+                    src={appFeatureBg}
+                    alt="app Feature Bg"
+                    width={1272}
+                    height={1267}
+                />
+            </div> */}
             <div className="container">
                 <div className="w-full max-w-180.25">
                     <h2 className="font-inter leading-15">One app for your everyday money moments. </h2>
@@ -62,6 +73,8 @@ export default function AppFeature() {
                     </div>
                     <div></div>
                 </div>
+
+
             </div>
         </section>
     )
