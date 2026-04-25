@@ -16,6 +16,10 @@ export default function CreditCard() {
     const headingRef = useRef<HTMLHeadingElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
+    const card1Ref = useRef<HTMLDivElement>(null);
+    const card2Ref = useRef<HTMLDivElement>(null);
+    const card3Ref = useRef<HTMLDivElement>(null);
+
 
     // SECTION ANIMATION
     useEffect(() => {
@@ -81,6 +85,75 @@ export default function CreditCard() {
         return () => ctx.revert();
     }, []);
 
+    useEffect(() => {
+    const ctx = gsap.context(() => {
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            }
+        });
+
+        tl.fromTo(card1Ref.current,
+            {
+                y: 120,
+                opacity: 0,
+                rotate: -20,
+                scale: 0.8
+            },
+            {
+                y: 0,
+                opacity: 1,
+                rotate: -10,
+                scale: 1,
+                duration: 1,
+                ease: "power3.out"
+            }
+        );
+
+        tl.fromTo(card2Ref.current,
+            {
+                y: 120,
+                opacity: 0,
+                rotate: 20,
+                scale: 0.8
+            },
+            {
+                y: 0,
+                opacity: 1,
+                rotate: 8,
+                scale: 1,
+                duration: 1,
+                ease: "power3.out"
+            },
+            "-=0.7"
+        );
+
+        tl.fromTo(card3Ref.current,
+            {
+                y: 120,
+                opacity: 0,
+                rotate: 40,
+                scale: 0.8
+            },
+            {
+                y: 0,
+                opacity: 1,
+                rotate: 28,
+                scale: 1,
+                duration: 1,
+                ease: "power3.out"
+            },
+            "-=0.7"
+        );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+}, []);
+
     return (
         <div ref={sectionRef} className=" bg-[#FBF8E9] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
             {/* LEFT SIDE */}
@@ -94,9 +167,10 @@ export default function CreditCard() {
                     </div>
                 </div>
             </div>
+
             {/* RIGHT SIDE */}
             <div className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-5 lg:-top-12 sm:-right-14 md:-right-28 lg:right-12 xl:right-4 min-h-49 sm:min-h-112.5">
-                <div className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
+                <div ref={card1Ref} className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
                     <Image
                         src={MasterCard1}
                         alt="Master Card1"
@@ -105,7 +179,7 @@ export default function CreditCard() {
                     />
                 </div>
 
-                <div className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
+                <div ref={card2Ref} className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
                     <Image
                         src={MasterCard2}
                         alt="Master Card2"
@@ -113,7 +187,7 @@ export default function CreditCard() {
                         height={373}
                     />
                 </div>
-                <div className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
+                <div ref={card3Ref} className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
                     <Image src={MasterCard3}
                         alt="Master Card3"
                         width={235}
