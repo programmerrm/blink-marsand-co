@@ -98,20 +98,24 @@ export default function ReadyBlink() {
                         <p className="text-base md:text-lg font-normal font-blinker md:leading-6 text-white w-full max-w-[288px] mt-3">Download the app and discover a more intuitive way to bank.</p>
 
                         <div ref={buttonsRef} className="flex items-center gap-2.5 mt-8">
-                            <Link href={"/"} className="w-full max-w-35.25">
+                            <Link href={"/"} className="w-full max-w-35.25 group">
                                 <Image
                                     src={GoogleButton}
                                     alt="Google Button"
                                     width={141}
                                     height={47}
+                                    className="transition-all duration-500 ease-out
+        group-hover:scale-105 group-hover:-translate-y-0.5"
                                 />
                             </Link>
-                            <Link href={"/"} className="w-full max-w-35.25">
+                            <Link href={"/"} className="w-full max-w-35.25 group">
                                 <Image
                                     src={AppleButton}
                                     alt="Apple Button"
                                     width={141}
                                     height={47}
+                                    className="transition-all duration-500 ease-out
+        group-hover:scale-105 group-hover:-translate-y-0.5"
                                 />
                             </Link>
                         </div>
