@@ -1,5 +1,6 @@
 import BannarSection from "@/components/banner/bannerSection";
 import BlinkDifference from "@/components/blink-difference/blinkDifference";
+import BuildSection from "@/components/build-section/buildSection";
 import Company from "@/components/company/company";
 import Customer from "@/components/customer/customerSection";
 import Discover from "@/components/discover/discoverSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <Security />
       <Discover />
       <BlinkDifference />
+      <BuildSection />
       <Customer />
       <FAQ />
       <ReadyBlink />
