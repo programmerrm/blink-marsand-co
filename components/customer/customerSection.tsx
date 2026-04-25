@@ -104,10 +104,12 @@ export default function Customer() {
           {/* Left Content */}
           <div className="w-full max-w-157 translate-x-0 z-20 pb-5 xl:pb-36.5 mt-6 sm:mt-12.5 md:mt-25">
             <h2 ref={titleRef} className="text-white lg:leading-16"> What Our Customer Say About Us </h2>
-            <div className="pb-4 sm:pb-8 border-b border-white max-w-122 w-full mt-10 md:mt-20">
+            <div className=" max-w-122 w-full mt-10 md:mt-20">
               <span ref={quoteRef} className="text-base sm:text-xl font-semibold font-inter leading-6.25 text-white">“Best digital banking service”</span>
               <p ref={descRef} className="text-base sm:text-xl font-normal font-inter leading-6.25 text-white mt-4 sm:mt-8">Blink has transformed my financial life. It&apos;s intuitive, secure, and makes managing my money a breeze. Highly recommended!</p>
+              <hr className="text-white mt-4 sm:mt-8 "/>
             </div>
+            
             <div className="mt-8 sm:mt-16">
               <h4 ref={nameRef} className="text-xl sm:text-2xl font-semibold leading-6.25 text-white font-inter">Samia Rahman</h4>
               <h5 ref={roleRef} className=" font-inter font-normal text-[#BDD630] mt-1">HR</h5>
