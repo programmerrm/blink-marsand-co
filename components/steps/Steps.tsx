@@ -13,7 +13,7 @@ function Steps() {
         <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative py-8 lg:py-30">
             <div className="container grid grid-cols-1 gap-4 lg:grid-cols-2 relative">
                 {/* Section title text */}
-                <div className="text-white mt-8 sticky top-10 h-fit">
+                <div className="text-white lg:mt-8 sticky top-10 h-fit">
                     <h2>Get Started In Just 3 simple Steps.</h2>
                     <p className="mt-4">
                         Three simple steps to unlock the power of Blink and revolutionize your
@@ -23,15 +23,15 @@ function Steps() {
                 {/* Step cards container */}
                 <div className="relative z-1">
                     {/* step 1 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 overflow-hidden sticky top-10">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 overflow-hidden sticky top-50 lg:top-10">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 1
                         </span>
-                        <h4 className="mt-5">Sign Up With Blink</h4>
-                        <p className="text-lg text-[#004737CC] font-normal mt-5">
+                        <h4 className="mt-2 lg:mt-5">Sign Up With Blink</h4>
+                        <p className="text-lg text-[#004737CC] font-normal mt-1 lg:mt-5">
                             Create your Blink account and unlock a world of financial possibilities.
                         </p>
-                        <div className="max-w-82 mx-auto px-4 pt-4 bg-white mt-4 lg:mt-15 rounded-t-lg pb-4">
+                        <div className="max-w-82 mx-auto px-4 pt-4 bg-white mt-2 lg:mt-15 rounded-t-lg pb-4">
                             <h5 className="text-[1.375rem] font-blinker text-[#1F232C]">
                                 Enter mobile number
                             </h5>
@@ -67,7 +67,7 @@ function Steps() {
                         </div>
                     </div>
                     {/* step 2 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25 sticky top-20 shadow-2xl">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-5 lg:pb-21.25 sticky top-50 lg:top-20 shadow-2xl">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 2
                         </span>
@@ -101,7 +101,7 @@ function Steps() {
                         </div>
                     </div>
                     {/* step 3 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25 sticky top-30 shadow-2xl">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25 sticky top-50 lg:top-30 shadow-2xl">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 3
                         </span>
