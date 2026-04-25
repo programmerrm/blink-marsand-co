@@ -1,8 +1,8 @@
 "use client";
 
 import gsap from "gsap";
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 import SplitType from "split-type";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,8 +18,7 @@ export default function BannerSection() {
     const headingRef = useRef<HTMLHeadingElement>(null);
 
     useEffect(() => {
-        if (!rightSideRef.current || !leftSideRef.current || !headingRef.current)
-            return;
+        if (!rightSideRef.current || !leftSideRef.current || !headingRef.current) return;
 
         const split = new SplitType(headingRef.current, {
             types: "chars",
@@ -42,7 +41,7 @@ export default function BannerSection() {
                         start: "top 80%",
                         toggleActions: "play none none none",
                     },
-                }
+                },
             );
             // LEFT CONTENT STAGGER
             gsap.fromTo(
@@ -59,9 +58,9 @@ export default function BannerSection() {
                         start: "top 80%",
                         toggleActions: "play none none none",
                     },
-                }
+                },
             );
-            
+
             // CHAR LOOP ANIMATION HEADING
             // const animate = () => {
             //     gsap.fromTo(
@@ -96,7 +95,7 @@ export default function BannerSection() {
                         start: "top 80%",
                         toggleActions: "play none none none",
                     },
-                }
+                },
             );
         });
 
@@ -107,7 +106,10 @@ export default function BannerSection() {
     }, []);
 
     return (
-        <section ref={bannerRef} className="relative rounded-b-4xl lg:rounded-b-[80px] overflow-hidden">
+        <section
+            ref={bannerRef}
+            className="relative rounded-b-4xl lg:rounded-b-[80px] overflow-hidden"
+        >
             <video
                 autoPlay
                 loop
@@ -132,16 +134,17 @@ export default function BannerSection() {
                                 </span>
 
                                 <div className="w-full max-w-4 md:max-w-6 arrow-motion">
-                                    <Image
-                                        src={arrowIcon}
-                                        alt="arrowIcon"
-                                        width={24}
-                                        height={24}
-                                    />
+                                    <Image src={arrowIcon} alt="arrowIcon" width={24} height={24} />
                                 </div>
                             </Link>
-                            <h1 ref={headingRef} className="left-item">Banking, reimagined for the way Bangladesh moves.</h1>
-                            <p className="text-base md:text-lg xl:text-xl font-medium xl:leading-7.5 text-[#01292C] mt-6 left-item">Blink is almost here. A new digital banking experience by City Bank PLC designed to make everyday money simpler, faster, and more intuitive.</p>
+                            <h1 ref={headingRef} className="left-item">
+                                Banking, reimagined for the way <br /> Bangladesh moves.
+                            </h1>
+                            <p className="text-base md:text-lg xl:text-xl font-medium xl:leading-7.5 text-[#01292C] mt-6 left-item">
+                                Blink is almost here. A new digital banking experience by City Bank
+                                PLC designed to make everyday money simpler, faster, and more
+                                intuitive.
+                            </p>
                             <div className="flex items-center gap-4 mt-8 left-item">
                                 <Link
                                     href={"/"}
@@ -161,9 +164,15 @@ export default function BannerSection() {
                                 </Link>
                             </div>
                             <ul className="flex flex-col lg:flex-row mt-8 gap-y-3 gap-x-10 left-item">
-                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">Backed by City Bank PLC</li>
-                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">Secure by design</li>
-                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">Bangladesh Bank licensed</li>
+                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">
+                                    Backed by City Bank PLC
+                                </li>
+                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">
+                                    Secure by design
+                                </li>
+                                <li className="text-sm sm:text-base leading-5 font-medium relative lg:after:absolute after:content-[''] after:bg-[#01292C] after:w-px after:h-3.5 after:top-1/2 after:-translate-y-1/2 after:-right-5 last:after:hidden">
+                                    Bangladesh Bank licensed
+                                </li>
                             </ul>
                         </div>
                         {/* RIGHT SIDE */}
