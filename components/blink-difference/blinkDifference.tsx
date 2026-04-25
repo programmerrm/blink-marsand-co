@@ -5,8 +5,8 @@ import BlinkLogo from "../../assets/image/blink-logo-dark.png";
 import blinkBg from "../../assets/image/blink-difference-bg.png";
 export default function BlinkDifference() {
     return (
-        <section className="py-15 lg:py-30 relative">
-            <div className="absolute right-0 top-38 h-168.5 flex justify-end">
+        <section className="py-10 sm:py-15 lg:py-30 relative">
+            <div className="absolute right-0 top-38 h-120 lg:h-168.5 flex justify-end">
                 <Image 
                     src={blinkBg}
                     alt="blinkBg"
@@ -17,14 +17,14 @@ export default function BlinkDifference() {
             </div>
             <div className="container">
                 <div className="w-full max-w-126.25 text-center mx-auto">
-                    <h2 className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent mb-5"><span className="text-[#004737]">The Blink </span> <span>Difference</span></h2>
+                    <h2 className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent mb-3 md:mb-5"><span className="text-[#004737]">The Blink </span> <span>Difference</span></h2>
                     <p className="text-base lg:text-xl font-normal opacity-80">Discover why Blink is the smart choice for secure banking and personalized financial growth.</p>
                 </div>
-                <div className="mt-15 lg:mt-30 grid sm:grid-cols-3 gap-5 lg:gap-10">
+                <div className="mt-7.5 md:mt-15 lg:mt-30 grid sm:grid-cols-3 gap-5 lg:gap-10">
                     <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className=" rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-10">
                             <div className="absolute inset-0 bg-white/60"></div>
-                            <div className="w-full max-w-53.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 px-4">
+                            <div className="w-full max-w-40 md:max-w-53.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 px-4">
                                 <Image 
                                     src={ScanImage}
                                     alt="Scan Image"
@@ -42,7 +42,7 @@ export default function BlinkDifference() {
                     <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className="rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-14">
                             <div className="absolute inset-0 bg-white/60"></div>
-                            <div className="w-full max-w-41.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 md:mb-12 px-4">
+                            <div className="w-full max-w-35 md:max-w-41.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 md:mb-12 px-4">
                                 <Image 
                                     src={SecureImage}
                                     alt="Secure Image"
@@ -60,7 +60,7 @@ export default function BlinkDifference() {
                     <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className="rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-30">
                             <div className="absolute inset-0 bg-white/60"></div>
-                            <div className="w-full max-w-47 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-7 md:mb-14.75 px-4">
+                            <div className="w-full max-w-40 md:max-w-47 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-7 md:mb-14.75 px-4">
                                 <Image 
                                     src={BlinkLogo}
                                     alt="Blink Logo"
