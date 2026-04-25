@@ -1,3 +1,4 @@
+import AppFeature from "@/components/app-feature/appFeature";
 import BannarSection from "@/components/banner/bannerSection";
 import BlinkDifference from "@/components/blink-difference/blinkDifference";
 import BuildSection from "@/components/build-section/buildSection";
@@ -21,6 +22,7 @@ export default function Home() {
       <Discover />
       <BlinkDifference />
       <BuildSection />
+      <AppFeature />
       <Customer />
       <FAQ />
       <ReadyBlink />
