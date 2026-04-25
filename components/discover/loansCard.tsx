@@ -14,13 +14,14 @@ export default function LoansCard() {
     const headingRef = useRef<HTMLHeadingElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
 
     // SECTION ANIMATION
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 sectionRef.current,
-                { y: 80, opacity: 0, scale: 0.85 },
+                { y: 80, opacity: 0, scale: 0.9 },
                 {
                     y: 0,
                     opacity: 1,
@@ -29,7 +30,7 @@ export default function LoansCard() {
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 90%",
+                        start: "top 85%",
                         toggleActions: "play none none reverse",
                     },
                 }
@@ -45,13 +46,13 @@ export default function LoansCard() {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: leftSideRef.current,
-                    start: "top 90%",
+                    start: "top 85%",
                     toggleActions: "play none none reverse",
                 }
             });
 
             tl.from(leftSideRef.current, {
-                y: 100,
+                y: 80,
                 opacity: 0,
                 duration: 0.8,
                 ease: "power3.out"
@@ -64,13 +65,13 @@ export default function LoansCard() {
             }, "-=0.3");
 
             tl.from(textRef.current, {
-                y: 40,
+                y: 30,
                 opacity: 0,
                 duration: 0.6
             }, "-=0.3");
 
             tl.from(buttonRef.current, {
-                y: 30,
+                y: 20,
                 opacity: 0,
                 duration: 0.5
             }, "-=0.2");
@@ -78,6 +79,39 @@ export default function LoansCard() {
 
         return () => ctx.revert();
     }, []);
+
+    // IMAGE ANIMATION (MAIN PREMIUM EFFECT)
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // entrance animation
+            gsap.fromTo(
+                imageRef.current,
+                {
+                    y: 120,
+                    opacity: 0,
+                    scale: 0.85,
+                    rotate: -6,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0,
+                    duration: 1.3,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: imageRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+        }, imageRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <div ref={sectionRef} className=" bg-[#004737] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
             <div ref={leftSideRef} className="order-2 lg:order-1 w-full lg:max-w-2xl pr-6 lg:pr-0 py-6 lg:py-12 pl-6 lg:pl-12">
@@ -90,7 +124,9 @@ export default function LoansCard() {
                     </div>
                 </div>
             </div>
-            <div className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-10 sm:-top-14 lg:-top-17 sm:-right-14 md:-right-28 lg:right-12 xl:right-10 min-h-49 sm:min-h-120">
+            <div
+                ref={imageRef}
+                className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-10 sm:-top-14 lg:-top-17 sm:-right-14 md:-right-28 lg:right-12 xl:right-10 min-h-49 sm:min-h-120">
                 <div className="w-50 sm:w-100 absolute top-0 left-1/2 -translate-x-1/2 z-30">
                     <Image
                         src={LoansImage}
