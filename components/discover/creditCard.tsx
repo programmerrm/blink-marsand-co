@@ -15,12 +15,16 @@ export default function CreditCard() {
     const headingRef = useRef<HTMLHeadingElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
+    const card1Ref = useRef<HTMLDivElement>(null);
+    const card2Ref = useRef<HTMLDivElement>(null);
+    const card3Ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // LEFT SIDE ANIMATION
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: leftSideRef.current,
-                start: "top 100%",
+                start: "top 90%",
                 toggleActions: "play none none reverse",
             }
         });
@@ -50,6 +54,62 @@ export default function CreditCard() {
             duration: 0.5
         }, "-=0.2");
 
+
+        // RIGHT SIDE (STACK → SPREAD)
+        const cardTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: card1Ref.current,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            }
+        });
+
+        // card 1 (left)
+        cardTl.fromTo(card1Ref.current,
+            { x: 0, y: 0, rotate: 0 },
+            { x: -140, rotate: -10, duration: 0.8, ease: "power3.out" }
+        );
+
+        // card 2 (middle)
+        cardTl.fromTo(card2Ref.current,
+            { x: 0, y: 0, rotate: 0 },
+            { x: 20, rotate: 8, duration: 0.8, ease: "power3.out" },
+            "-=0.6"
+        );
+
+        // card 3 (right নিচে একটু)
+        cardTl.fromTo(card3Ref.current,
+            { x: 0, y: 0, rotate: 0 },
+            { x: 160, y: 40, rotate: 28, duration: 0.8, ease: "power3.out" },
+            "-=0.6"
+        );
+
+
+        // HOVER EFFECT
+        const cards = [card1Ref.current, card2Ref.current, card3Ref.current];
+
+        cards.forEach((card) => {
+            if (!card) return;
+
+            card.addEventListener("mouseenter", () => {
+                gsap.to(card, {
+                    y: "-=15",
+                    scale: 1.05,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, {
+                    y: "+=15",
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+
     }, []);
 
     return (
@@ -67,7 +127,7 @@ export default function CreditCard() {
             </div>
             {/* RIGHT SIDE */}
             <div className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-5 lg:-top-12 sm:-right-14 md:-right-28 lg:right-12 xl:right-4 min-h-49 sm:min-h-112.5">
-                <div className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
+                <div ref={card1Ref} className="absolute left-1/2 top-0 -translate-x-1/2 z-10">
                     <Image
                         src={MasterCard1}
                         alt="Master Card1"
@@ -76,7 +136,7 @@ export default function CreditCard() {
                     />
                 </div>
 
-                <div className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
+                <div ref={card2Ref} className="absolute left-1/2 top-0 -translate-x-1/2 z-20">
                     <Image
                         src={MasterCard2}
                         alt="Master Card2"
@@ -84,7 +144,7 @@ export default function CreditCard() {
                         height={373}
                     />
                 </div>
-                <div className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
+                <div ref={card3Ref} className="absolute left-1/2 top-0 -translate-x-1/2 z-30">
                     <Image src={MasterCard3}
                         alt="Master Card3"
                         width={235}
