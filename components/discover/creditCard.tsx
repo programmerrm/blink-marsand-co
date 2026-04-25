@@ -20,9 +20,8 @@ export default function CreditCard() {
     const card2Ref = useRef<HTMLDivElement>(null);
     const card3Ref = useRef<HTMLDivElement>(null);
 
-
     // SECTION ANIMATION
-    useEffect(() => {
+        useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 sectionRef.current,
@@ -85,6 +84,7 @@ export default function CreditCard() {
         return () => ctx.revert();
     }, []);
 
+    // CARD ANIMATION 
     useEffect(() => {
         const ctx = gsap.context(() => {
 
@@ -96,57 +96,57 @@ export default function CreditCard() {
                 }
             });
 
-            tl.fromTo(card1Ref.current,
+            tl.fromTo(
+                card1Ref.current,
                 {
-                    y: 120,
-                    opacity: 0,
-                    rotate: -20,
-                    scale: 0.8
+                    x: 0,
+                    y: 50,
+                    rotate: 0,
+                    opacity: 0
                 },
                 {
+                    x: 0,
                     y: 0,
-                    opacity: 1,
                     rotate: -10,
-                    scale: 1,
+                    opacity: 1,
                     duration: 1,
                     ease: "power3.out"
-                }
+                },
+                0 
             );
 
-            tl.fromTo(card2Ref.current,
+            tl.fromTo(
+                card2Ref.current,
                 {
-                    y: 120,
-                    opacity: 0,
-                    rotate: 20,
-                    scale: 0.8
+                    rotate: 0,
+                    y: 50,
+                    opacity: 0
                 },
                 {
-                    y: 0,
-                    opacity: 1,
                     rotate: 8,
-                    scale: 1,
-                    duration: 1,
-                    ease: "power3.out"
-                },
-                "-=0.7"
-            );
-
-            tl.fromTo(card3Ref.current,
-                {
-                    y: 120,
-                    opacity: 0,
-                    rotate: 40,
-                    scale: 0.8
-                },
-                {
                     y: 0,
                     opacity: 1,
-                    rotate: 28,
-                    scale: 1,
                     duration: 1,
                     ease: "power3.out"
                 },
-                "-=0.7"
+                0
+            );
+
+            tl.fromTo(
+                card3Ref.current,
+                {
+                    rotate: 0,
+                    y: 50,
+                    opacity: 0
+                },
+                {
+                    rotate: 28,
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                },
+                0 
             );
 
         }, sectionRef);
@@ -171,16 +171,17 @@ export default function CreditCard() {
 
             {/* RIGHT SIDE */}
             <div className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-5 lg:-top-12 sm:-right-14 md:-right-28 lg:right-12 xl:right-4 min-h-49 sm:min-h-112.5">
-                <div ref={card1Ref} className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
+                
+                <div ref={card1Ref} className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 rotate-0 z-10">
                     <Image
                         src={MasterCard1}
                         alt="Master Card1"
                         width={235}
                         height={373}
                     />
-                </div>
+                </div> 
 
-                <div ref={card2Ref} className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
+                <div ref={card2Ref} className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-0 z-20">
                     <Image
                         src={MasterCard2}
                         alt="Master Card2"
@@ -188,13 +189,15 @@ export default function CreditCard() {
                         height={373}
                     />
                 </div>
-                <div ref={card3Ref} className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
+
+                <div ref={card3Ref} className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-0 z-30">
                     <Image src={MasterCard3}
                         alt="Master Card3"
                         width={235}
                         height={373}
                     />
                 </div>
+
                 <div className="bg-[#887C3D] absolute w-full max-w-150 h-8.5 bottom-0 sm:-bottom-4 right-0 sm:right-20 blur-[65px]"></div>
             </div>
 
