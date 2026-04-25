@@ -11,110 +11,78 @@ import MasterCard3 from "../../assets/image/master-card3.svg";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CreditCard() {
+    const sectionRef = useRef<HTMLDivElement>(null);
     const leftSideRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
-    const card1Ref = useRef<HTMLDivElement>(null);
-    const card2Ref = useRef<HTMLDivElement>(null);
-    const card3Ref = useRef<HTMLDivElement>(null);
 
+    // SECTION ANIMATION
     useEffect(() => {
-        // LEFT SIDE ANIMATION
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: leftSideRef.current,
-                start: "top 90%",
-                toggleActions: "play none none reverse",
-            }
-        });
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                sectionRef.current,
+                { y: 80, opacity: 0, scale: 0.85 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        }, sectionRef);
 
-        tl.from(leftSideRef.current, {
-            y: 100,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-        });
+        return () => ctx.revert();
+    }, []);
 
-        tl.from(headingRef.current, {
-            y: 40,
-            opacity: 0,
-            duration: 0.6
-        }, "-=0.3");
+    // LEFT SIDE STAGGER ANIMATION
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: leftSideRef.current,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse",
+                }
+            });
 
-        tl.from(textRef.current, {
-            y: 40,
-            opacity: 0,
-            duration: 0.6
-        }, "-=0.3");
+            tl.from(leftSideRef.current, {
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            });
 
-        tl.from(buttonRef.current, {
-            y: 30,
-            opacity: 0,
-            duration: 0.5
-        }, "-=0.2");
+            tl.from(headingRef.current, {
+                y: 40,
+                opacity: 0,
+                duration: 0.6
+            }, "-=0.3");
 
-        // RIGHT SIDE ANIMATION
-        const cardTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: card1Ref.current,
-                start: "top 85%",
-                toggleActions: "play none none reverse",
-            }
-        });
+            tl.from(textRef.current, {
+                y: 40,
+                opacity: 0,
+                duration: 0.6
+            }, "-=0.3");
 
-        // card 1
-        cardTl.fromTo(card1Ref.current,
-            { 
-                x: 0, 
-                y: 0, 
-                rotate: 0 
-            },
-            { 
-                x: 0, 
-                rotate: -10, 
-                duration: 0.8, 
-                ease: "power3.out" 
-            }
-        );
+            tl.from(buttonRef.current, {
+                y: 30,
+                opacity: 0,
+                duration: 0.5
+            }, "-=0.2");
+        }, leftSideRef);
 
-        // card 2 
-        cardTl.fromTo(card2Ref.current,
-            { 
-                x: 0, 
-                y: 0, 
-                rotate: 0 
-            },
-            { 
-                x: 0, 
-                rotate: 8, 
-                duration: 0.8, 
-                ease: "power3.out" 
-            },
-            "-=0.6"
-        );
-
-        // card 3 
-        cardTl.fromTo(card3Ref.current,
-            { 
-                x: 0, 
-                y: 0, 
-                rotate: 0 
-            },
-            { 
-                x: 0, 
-                y: 0, 
-                rotate: 28, 
-                duration: 0.8, 
-                ease: "power3.out" 
-            },
-            "-=0.6"
-        );
-
+        return () => ctx.revert();
     }, []);
 
     return (
-        <div className=" bg-[#FBF8E9] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
+        <div ref={sectionRef} className=" bg-[#FBF8E9] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
             {/* LEFT SIDE */}
             <div ref={leftSideRef} className="order-2 lg:order-1 w-full lg:max-w-2xl pr-6 lg:pr-0 py-6 lg:py-12 pl-6 lg:pl-12">
                 <h3 ref={headingRef} className=" leading-8 sm:leading-10 xl:leading-15">Manage All Your Credit Cards In One Place.</h3>
@@ -128,7 +96,7 @@ export default function CreditCard() {
             </div>
             {/* RIGHT SIDE */}
             <div className="order-1 lg:order-2 w-full max-w-151 sm:max-w-122.5 relative -top-5 lg:-top-12 sm:-right-14 md:-right-28 lg:right-12 xl:right-4 min-h-49 sm:min-h-112.5">
-                <div ref={card1Ref} className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
+                <div className="w-30 sm:w-58.75 absolute top-0 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-11 -rotate-10 z-10">
                     <Image
                         src={MasterCard1}
                         alt="Master Card1"
@@ -137,7 +105,7 @@ export default function CreditCard() {
                     />
                 </div>
 
-                <div ref={card2Ref} className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
+                <div className="w-30 sm:w-58.75 absolute top-0 left-[56%] -translate-x-1/2 sm:translate-x-0 sm:left-28 rotate-8 z-20">
                     <Image
                         src={MasterCard2}
                         alt="Master Card2"
@@ -145,7 +113,7 @@ export default function CreditCard() {
                         height={373}
                     />
                 </div>
-                <div ref={card3Ref} className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
+                <div className="w-30 sm:w-58.75 absolute top-6 sm:top-12 left-[61%] -translate-x-1/2 sm:translate-x-0 sm:left-48 rotate-28 z-30">
                     <Image src={MasterCard3}
                         alt="Master Card3"
                         width={235}

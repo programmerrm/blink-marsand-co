@@ -1,7 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus, X } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type FAQItem = {
   question: string;
@@ -39,29 +43,89 @@ const faqData: FAQItem[] = [
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const itemsRef = useRef<HTMLDivElement[]>([]);
+
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(sectionRef.current, {
+        y: 100,
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      tl.from(
+        headingRef.current,
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "-=0.4"
+      );
+
+      tl.from(
+        itemsRef.current,
+        {
+          y: 70,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="bg-white py-12.5 lg:py-25">
+    <section ref={sectionRef} className="bg-white py-12.5 lg:py-25">
       <div className="container">
         <div className="w-full max-w-175 mx-auto">
-          <h2 className="font-inter font-medium text-center mb-6 md:mb-14">
+          {/* TITLE */}
+          <h2
+            ref={headingRef}
+            className="font-inter font-medium text-center mb-6 md:mb-14"
+          >
             Quick-fire answers
           </h2>
 
+          {/* FAQ LIST */}
           <div className="space-y-3 md:space-y-5">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
 
               return (
-                <FAQRow
+                <div
                   key={index}
-                  item={item}
-                  isOpen={isOpen}
-                  onClick={() => toggle(index)}
-                />
+                  ref={(el) => {
+                    if (el) itemsRef.current[index] = el;
+                  }}
+                >
+                  <FAQRow
+                    item={item}
+                    isOpen={isOpen}
+                    onClick={() => toggle(index)}
+                  />
+                </div>
               );
             })}
           </div>
@@ -70,6 +134,8 @@ export default function FAQ() {
     </section>
   );
 }
+
+/* FAQ ROW */
 
 function FAQRow({
   item,
@@ -81,9 +147,17 @@ function FAQRow({
   onClick: () => void;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [isOpen]);
 
   return (
     <div className="border-b border-gray-300 pb-3 md:pb-5">
+      {/* QUESTION */}
       <button
         onClick={onClick}
         className="flex items-center justify-between w-full text-left cursor-pointer"
@@ -92,19 +166,19 @@ function FAQRow({
           <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#BDD630] text-[#00473C]">
             {isOpen ? <X size={16} /> : <Plus size={16} />}
           </span>
+
           <h6 className="text-lg md:text-[23px] text-[#00473C] font-inter md:leading-8 font-normal">
             {item.question}
           </h6>
         </div>
       </button>
 
+      {/* ANSWER */}
       <div
         ref={contentRef}
         className="overflow-hidden transition-all duration-300 ease-in-out"
         style={{
-          maxHeight: isOpen
-            ? contentRef.current?.scrollHeight + "px"
-            : "0px",
+          maxHeight: isOpen ? `${height}px` : "0px",
         }}
       >
         <p className="mt-3 ml-10 text-[#00473C] text-sm md:text-[17px] font-inter font-normal md:leading-6.25">
