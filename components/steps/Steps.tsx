@@ -23,7 +23,7 @@ function Steps() {
                 {/* Step cards container */}
                 <div className="relative z-1">
                     {/* step 1 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 overflow-hidden">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 overflow-hidden sticky top-10">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 1
                         </span>
@@ -67,7 +67,7 @@ function Steps() {
                         </div>
                     </div>
                     {/* step 2 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25 sticky top-20 shadow-2xl">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 2
                         </span>
@@ -101,7 +101,7 @@ function Steps() {
                         </div>
                     </div>
                     {/* step 3 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 mt-10 pb-21.25 sticky top-30 shadow-2xl">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 3
                         </span>
