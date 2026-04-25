@@ -162,8 +162,9 @@ export default function CreditCard() {
                 <p ref={textRef} className="text-base lg:text-xl font-normal opacity-80 mt-5">Keep track of multiple credit cards effortlessly within the Blink app. Monitor balances, track transactions, and stay on top of payments without switching between different accounts.</p>
 
                 <div ref={buttonRef} className="w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full mt-10 sm:mt-26.5">
-                    <div className="w-37.5 flex items-center bg-[#FBF8E9] rounded-full">
+                    <div className="w-37.5 flex items-center bg-[#FBF8E9] rounded-full relative transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                         <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-black hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">Explore</button>
+                        <span className="absolute inset-0 scale-x-0 origin-left bg-[linear-gradient(90deg,#3AC2D6,#59C4AB,#7EC779,#99CA54,#A9CB3E,#B0CC36)] group-hover:scale-x-100 transition-transform duration-500" />
                     </div>
                 </div>
             </div>

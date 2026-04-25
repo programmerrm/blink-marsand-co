@@ -74,8 +74,9 @@ export default function AppFeature() {
                             <p className="text-sm text-[#0C231F]/60 font-inter leading-5.25 font-medium">Stay ahead of payments with Blink's smart reminders. Never miss a due date again, ensuring your bills are paid on time, every time. Enjoy peace of mind with hassle-free bill management.</p>
                         </div>
                         <div className="w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full mt-4 sm:mt-8">
-                            <div className="w-full flex items-center bg-white rounded-full">
+                            <div className="w-full flex items-center bg-white rounded-full relative transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                                 <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-black hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">Explore Personal Features</button>
+                                <span className="absolute inset-0 scale-x-0 origin-left bg-[linear-gradient(90deg,#3AC2D6,#59C4AB,#7EC779,#99CA54,#A9CB3E,#B0CC36)] group-hover:scale-x-100 transition-transform duration-500" />
                             </div>
                         </div>
                     </div>
@@ -147,10 +148,11 @@ export default function AppFeature() {
                                 money efficiently, and access services with clarity
                             </p>
                             <div className="w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full mt-8">
-                                <div className="w-auto flex items-center bg-[#ffffff] rounded-full">
+                                <div className="w-auto flex items-center bg-[#ffffff] rounded-full relative transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                                     <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-black hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">
                                         Explore Business Services
                                     </button>
+                                    <span className="absolute inset-0 scale-x-0 origin-left bg-[linear-gradient(90deg,#3AC2D6,#59C4AB,#7EC779,#99CA54,#A9CB3E,#B0CC36)] group-hover:scale-x-100 transition-transform duration-500" />
                                 </div>
                             </div>
                         </div>
@@ -165,10 +167,11 @@ export default function AppFeature() {
                                 everyday usage.
                             </p>
                             <div className="w-full max-w-65.75 bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full mt-8">
-                                <div className="w-auto flex items-center bg-[#ffffff] rounded-full">
+                                <div className="w-auto flex items-center bg-[#ffffff] rounded-full relative transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
                                     <button className="w-full px-2 xl:px-4 py-2 2xl:py-3.5 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold  cursor-pointer transition-all rounded-full hover:text-black hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent">
                                         Explore rewards
                                     </button>
+                                    <span className="absolute inset-0 scale-x-0 origin-left bg-[linear-gradient(90deg,#3AC2D6,#59C4AB,#7EC779,#99CA54,#A9CB3E,#B0CC36)] group-hover:scale-x-100 transition-transform duration-500" />
                                 </div>
                             </div>
                         </div>
