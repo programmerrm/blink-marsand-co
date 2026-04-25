@@ -73,6 +73,7 @@ export default function ReadyBlink() {
 
         return () => ctx.revert();
     }, []);
+    
     return (
         <section className=" overflow-hidden bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative">
             <div className="container">
