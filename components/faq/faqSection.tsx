@@ -163,10 +163,9 @@ function FAQRow({
         className="flex items-center justify-between w-full text-left cursor-pointer"
       >
         <div className="flex items-center gap-3">
-          <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#BDD630] text-[#00473C]">
-            {isOpen ? <X size={16} /> : <Plus size={16} />}
-          </span>
-
+          <div className="w-7 sm:w-8 h-7 sm:h-8 shrink-0 flex items-center justify-center rounded-full bg-[#BDD630] text-[#00473C]">
+            {isOpen ? <X size={17} /> : <Plus size={17} />}
+          </div>
           <h6 className="text-lg md:text-[23px] text-[#00473C] font-inter md:leading-8 font-normal">
             {item.question}
           </h6>
