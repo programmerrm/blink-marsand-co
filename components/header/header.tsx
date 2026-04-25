@@ -128,34 +128,32 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* MOBILE MENU (SLIDE - NO DESIGN CHANGE ABOVE) */}
-            {open && (
-                <div className="fixed inset-0 z-50 lg:hidden">
+            {/* MOBILE MENU PANEL */}
+            <div className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ease-in-out ${open ? "visible opacity-100" : "invisible opacity-0"}`}>
 
-                    {/* overlay */}
-                    <div
-                        onClick={() => setOpen(false)}
-                        className="absolute inset-0 bg-black/60"
-                    />
+                {/* overlay */}
+                <div
+                    onClick={() => setOpen(false)}
+                    className={`absolute inset-0 bg-black/60 transition-all duration-300 ease-in-out ${open ? "opacity-100" : "opacity-0"}`}
+                />
 
-                    {/* sidebar */}
-                    <div className="absolute left-0 top-0 h-full w-72 bg-white shadow-lg p-5 transition-transform duration-2000">
+                {/* sidebar */}
+                <div className={`absolute left-0 top-0 h-full w-72 bg-white shadow-lg p-5 transition-all duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}>
 
-                        {/* close */}
-                        <div className="flex justify-between items-center mb-6">
-                            <Image src={LogoIcon} alt="logo" width={90} height={40} />
+                    {/* close */}
+                    <div className="flex justify-between items-center mb-6">
+                        <Image src={LogoIcon} alt="logo" width={90} height={40} />
 
-                            <button onClick={() => setOpen(false)}>
-                                <X size={22} />
-                            </button>
-                        </div>
-
-                        <Menu mobile />
-
+                        <button onClick={() => setOpen(false)}>
+                            <X size={22} />
+                        </button>
                     </div>
 
+                    <Menu mobile />
+
                 </div>
-            )}
+
+            </div>
         </header>
     );
 }
