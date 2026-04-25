@@ -15,11 +15,9 @@ export default function Security() {
     const headingRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!headingRef.current) return;
-
         const ctx = gsap.context(() => {
 
-            // HEADING
+            // 🔹 HEADING ANIMATION
             gsap.fromTo(
                 headingRef.current,
                 { y: 80, opacity: 0, scale: 0.85 },
@@ -31,22 +29,24 @@ export default function Security() {
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: headingRef.current,
-                        start: "top 100%",
+                        start: "top 90%",
                         toggleActions: "play none none reverse",
                     },
                 }
             );
 
+            // 🔥 CARD SEQUENTIAL ANIMATION
             const cards = gsap.utils.toArray<HTMLElement>(".card-item");
 
-            const animateCard = (card: HTMLElement, start: string) => {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: card,
-                        start,
-                        toggleActions: "play none none reverse",
-                    }
-                });
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".card-wrapper",
+                    start: "top 70%",
+                    toggleActions: "play none none reverse",
+                }
+            });
+
+            cards.forEach((card) => {
 
                 // CARD
                 tl.fromTo(card,
@@ -55,53 +55,50 @@ export default function Security() {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.7,
+                        duration: 0.5,
                         ease: "power3.out"
                     }
                 )
 
-                    // H3
-                    .fromTo(
-                        card.querySelectorAll("h3"),
-                        { y: 30, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.5,
-                            ease: "power3.out"
-                        },
-                        "-=0.2"
-                    )
+                // IMAGE
+                .fromTo(
+                    card.querySelectorAll("img"),
+                    { y: 80, opacity: 0, scale: 0.95 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.5,
+                        ease: "power3.out"
+                    },
+                    "-=0.3"
+                )
 
-                    // P
-                    .fromTo(
-                        card.querySelectorAll("p"),
-                        { y: 30, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.5,
-                            ease: "power3.out"
-                        },
-                        "-=0.3"
-                    );
-            };
+                // HEADING
+                .fromTo(
+                    card.querySelectorAll("h3"),
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "power3.out"
+                    },
+                    "-=0.2"
+                )
 
-            ScrollTrigger.matchMedia({
-
-                // DESKTOP 
-                "(min-width: 768px)": () => {
-                    animateCard(cards[2], "top 85%");
-                    animateCard(cards[1], "top 80%");
-                    animateCard(cards[0], "top 75%");
-                },
-
-                // MOBILE
-                "(max-width: 767px)": () => {
-                    animateCard(cards[0], "top 80%");
-                    animateCard(cards[1], "top 75%");
-                    animateCard(cards[2], "top 70%");
-                }
+                // TEXT
+                .fromTo(
+                    card.querySelectorAll("p"),
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "power3.out"
+                    },
+                    "-=0.2"
+                );
 
             });
 

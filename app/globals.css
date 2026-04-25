@@ -1,18 +1,21 @@
 @import "tailwindcss";
 
 :root {
-    --background: #FFFFFF;
+    --background: #ffffff;
     --foreground: #004737;
 }
 
 @theme {
-  --font-inter: 'Inter', sans-serif;
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-blinker: 'Blinker', sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    --font-blinker: "Blinker", sans-serif;
 
+    --shadow-glow:
+        0px 4px 24px 0px #4de35c1f, 12px 12px 24px 0px #03ff1c0f, -8px 12px 24px 0px #10ff5314,
+        0px 4px 4px 0px #0000000a;
+    --shadow-glow-card: 14.4px 14.4px 28.8px 0px #03ff1c0f, 0px 4.8px 4.8px 0px #0000000a;
 }
-
 
 body {
     background: var(--background);
@@ -21,7 +24,6 @@ body {
 }
 
 @layer base {
-
     h1,
     h2,
     h3,
@@ -32,26 +34,26 @@ body {
     }
 
     h1 {
-        @apply text-3xl md:text-4xl lg:text-[54px] xl:text-[64px] lg:leading-18.25 font-semibold text-[#01292C]
+        @apply text-3xl md:text-4xl lg:text-[54px] xl:text-[64px] lg:leading-18.25 font-semibold text-[#01292C];
     }
 
     h2 {
-        @apply text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-12 font-semibold
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-[48px] lg:leading-12 font-semibold;
     }
-    h3{
-        @apply text-2xl lg:text-3xl xl:text-[40px] lg:leading-15 font-semibold
+    h3 {
+        @apply text-2xl lg:text-3xl xl:text-[40px] lg:leading-15 font-semibold;
     }
 
     h4 {
-        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold
+        @apply text-lg lg:text-[32px] lg:leading-8 font-semibold;
     }
 
     h5 {
-        @apply text-sm sm:text-xl lg:leading-7.5 font-semibold
+        @apply text-sm sm:text-xl lg:leading-7.5 font-semibold;
     }
 
     p {
-        @apply text-base sm:text-xl md:leading-7.5 font-medium
+        @apply text-base sm:text-xl md:leading-7.5 font-medium;
     }
 }
 

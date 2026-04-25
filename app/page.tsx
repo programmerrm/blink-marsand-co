@@ -1,4 +1,4 @@
-import AppFeature from "@/components/app-feature/appFeature";
+
 import BannarSection from "@/components/banner/bannerSection";
 import BlinkDifference from "@/components/blink-difference/blinkDifference";
 import BuildSection from "@/components/build-section/buildSection";
@@ -10,24 +10,23 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import ReadyBlink from "@/components/ready-blink/readyBlink";
 import Security from "@/components/security/securitySection";
+import Steps from "@/components/steps/Steps";
 
 export default function Home() {
-  return (
-    <main>
-
-      <Header />
-      <BannarSection />
-      <Company />
-      <Security />
-      <Discover />
-      <BlinkDifference />
-      <BuildSection />
-      <AppFeature />
-      <Customer />
-      <FAQ />
-      <ReadyBlink />
-      <Footer />
-
-    </main>
-  );
+    return (
+        <main>
+            <Header />
+            <BannarSection />
+            <Company />
+            <Security />
+            <Discover />
+            <BlinkDifference />
+            <BuildSection />
+            <Steps />
+            <Customer />
+            <FAQ />
+            <ReadyBlink />
+            <Footer />
+        </main>
+    );
 }

@@ -86,73 +86,73 @@ export default function CreditCard() {
     }, []);
 
     useEffect(() => {
-    const ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 85%",
-                toggleActions: "play none none reverse",
-            }
-        });
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                }
+            });
 
-        tl.fromTo(card1Ref.current,
-            {
-                y: 120,
-                opacity: 0,
-                rotate: -20,
-                scale: 0.8
-            },
-            {
-                y: 0,
-                opacity: 1,
-                rotate: -10,
-                scale: 1,
-                duration: 1,
-                ease: "power3.out"
-            }
-        );
+            tl.fromTo(card1Ref.current,
+                {
+                    y: 120,
+                    opacity: 0,
+                    rotate: -20,
+                    scale: 0.8
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    rotate: -10,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                }
+            );
 
-        tl.fromTo(card2Ref.current,
-            {
-                y: 120,
-                opacity: 0,
-                rotate: 20,
-                scale: 0.8
-            },
-            {
-                y: 0,
-                opacity: 1,
-                rotate: 8,
-                scale: 1,
-                duration: 1,
-                ease: "power3.out"
-            },
-            "-=0.7"
-        );
+            tl.fromTo(card2Ref.current,
+                {
+                    y: 120,
+                    opacity: 0,
+                    rotate: 20,
+                    scale: 0.8
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    rotate: 8,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                },
+                "-=0.7"
+            );
 
-        tl.fromTo(card3Ref.current,
-            {
-                y: 120,
-                opacity: 0,
-                rotate: 40,
-                scale: 0.8
-            },
-            {
-                y: 0,
-                opacity: 1,
-                rotate: 28,
-                scale: 1,
-                duration: 1,
-                ease: "power3.out"
-            },
-            "-=0.7"
-        );
+            tl.fromTo(card3Ref.current,
+                {
+                    y: 120,
+                    opacity: 0,
+                    rotate: 40,
+                    scale: 0.8
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    rotate: 28,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                },
+                "-=0.7"
+            );
 
-    }, sectionRef);
+        }, sectionRef);
 
-    return () => ctx.revert();
-}, []);
+        return () => ctx.revert();
+    }, []);
 
     return (
         <div ref={sectionRef} className=" bg-[#FBF8E9] rounded-3xl sm:rounded-[40px] flex flex-col lg:flex-row justify-between gap-5 relative ">
