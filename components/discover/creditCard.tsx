@@ -71,7 +71,7 @@ export default function CreditCard() {
                 rotate: 0 
             },
             { 
-                x: -60, 
+                x: 0, 
                 rotate: -10, 
                 duration: 0.8, 
                 ease: "power3.out" 
@@ -86,7 +86,7 @@ export default function CreditCard() {
                 rotate: 0 
             },
             { 
-                x: 10, 
+                x: 0, 
                 rotate: 8, 
                 duration: 0.8, 
                 ease: "power3.out" 
@@ -102,8 +102,8 @@ export default function CreditCard() {
                 rotate: 0 
             },
             { 
-                x: 60, 
-                y: 20, 
+                x: 0, 
+                y: 0, 
                 rotate: 28, 
                 duration: 0.8, 
                 ease: "power3.out" 
