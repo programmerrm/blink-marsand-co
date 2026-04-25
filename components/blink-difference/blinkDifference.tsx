@@ -1,9 +1,67 @@
+"use client";
+
+import gsap from "gsap";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScanImage from "../../assets/image/scan.png";
 import SecureImage from "../../assets/image/secure.png";
 import BlinkLogo from "../../assets/image/blink-logo-dark.png";
 import blinkBg from "../../assets/image/blink-difference-bg.png";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function BlinkDifference() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+
+            // SECTION ANIMATION
+            gsap.fromTo(
+                sectionRef.current,
+                { y: 80, opacity: 0, scale: 0.85 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+            // 🔥 FIXED: proper scoped selector inside container
+            gsap.fromTo(
+                cardsRef.current?.querySelectorAll(".blink-card") || [],
+                {
+                    y: 100,
+                    opacity: 0,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    stagger: 0.25,
+                    scrollTrigger: {
+                        trigger: cardsRef.current,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section className="py-10 sm:py-15 lg:py-30 relative">
             <div className="absolute right-0 top-38 h-120 lg:h-168.5 flex justify-end">
@@ -16,12 +74,13 @@ export default function BlinkDifference() {
                 />
             </div>
             <div className="container">
-                <div className="w-full max-w-126.25 text-center mx-auto">
+                <div ref={sectionRef} className="w-full max-w-126.25 text-center mx-auto">
                     <h2 className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] bg-clip-text text-transparent mb-3 md:mb-5"><span className="text-[#004737]">The Blink </span> <span>Difference</span></h2>
                     <p className="text-base lg:text-xl font-normal opacity-80">Discover why Blink is the smart choice for secure banking and personalized financial growth.</p>
                 </div>
-                <div className="mt-7.5 md:mt-15 lg:mt-30 grid sm:grid-cols-3 gap-5 lg:gap-10">
-                    <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
+                <div ref={cardsRef} className="mt-7.5 md:mt-15 lg:mt-30 grid sm:grid-cols-3 gap-5 lg:gap-10">
+
+                    <div className="blink-card border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className=" rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-10">
                             <div className="absolute inset-0 bg-white/60"></div>
                             <div className="w-full max-w-40 md:max-w-53.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 px-4">
@@ -39,7 +98,8 @@ export default function BlinkDifference() {
 
                         </div>
                     </div>
-                    <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
+
+                    <div className="blink-card border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className="rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-14">
                             <div className="absolute inset-0 bg-white/60"></div>
                             <div className="w-full max-w-35 md:max-w-41.25 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-5 md:mb-12 px-4">
@@ -57,7 +117,8 @@ export default function BlinkDifference() {
 
                         </div>
                     </div>
-                    <div className="border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
+
+                    <div className="blink-card border border-[#004737]/20 rounded-3xl lg:rounded-[40px] overflow-hidden">
                         <div className="rounded-3xl lg:rounded-[40px] bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.68),rgba(255,255,255,0.68))] flex flex-col relative pt-30">
                             <div className="absolute inset-0 bg-white/60"></div>
                             <div className="w-full max-w-40 md:max-w-47 mx-auto relative z-20 rounded-3xl lg:rounded-[40px] mb-7 md:mb-14.75 px-4">
@@ -75,10 +136,9 @@ export default function BlinkDifference() {
 
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
-    )
+    );
 }
-
-

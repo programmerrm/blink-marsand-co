@@ -11,9 +11,9 @@ import stepsShape from "@/assets/image/steps-shape.png";
 function Steps() {
     return (
         <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative py-8 lg:py-30">
-            <div className="container grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="container grid grid-cols-1 gap-4 lg:grid-cols-2 relative">
                 {/* Section title text */}
-                <div className="text-white mt-8">
+                <div className="text-white mt-8 sticky top-10 h-fit">
                     <h2>Get Started In Just 3 simple Steps.</h2>
                     <p className="mt-4">
                         Three simple steps to unlock the power of Blink and revolutionize your

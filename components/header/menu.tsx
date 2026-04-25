@@ -7,11 +7,13 @@ import Link from "next/link";
 import erroDown from "../../assets/icon/errow-down.png";
 
 export default function Menu({ mobile = false }: { mobile?: boolean }) {
-     const menuRef = useRef<HTMLUListElement>(null);
+    const menuRef = useRef<HTMLUListElement>(null);
     const [openMenu, setOpenMenu] = useState<number | null>(null);
 
     const toggleMenu = (id: number) => {
-        setOpenMenu(openMenu === id ? null : id);
+        if (mobile) {
+            setOpenMenu(openMenu === id ? null : id);
+        }
     };
 
     const items = [
@@ -36,11 +38,12 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
     }, []);
 
     return (
-        <ul ref={menuRef} className={mobile ? "flex flex-col gap-3" : "flex items-center gap-2 xl:gap-4"}>
-
+        <ul
+            ref={menuRef}
+            className={mobile ? "flex flex-col gap-3" : "flex items-center gap-2 xl:gap-4"}
+        >
             {items.map((item) => (
-                <li key={item.id} className="relative group menu-item">
-
+                <li key={item.id} className={`relative ${!mobile ? "group" : ""} menu-item`}>
                     {/* trigger */}
                     <Link
                         href="#"
@@ -48,7 +51,7 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
                             e.preventDefault();
                             toggleMenu(item.id);
                         }}
-                        className="flex items-center gap-1 text-xs xl:text-sm font-medium text-black hover:text-[#3AC1D5]"
+                        className={`flex items-center gap-1 text-xs xl:text-sm font-medium text-black ${!mobile ? "group-hover:text-[#3AC1D5]" : "hover:text-[#3AC1D5]"}`}
                     >
                         {item.title}
 
@@ -57,14 +60,19 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
                             alt="down"
                             width={17}
                             height={17}
-                            className={`transition-transform duration-300 ${openMenu === item.id ? "rotate-180" : ""
-                                } ${!mobile ? "group-hover:rotate-180" : ""}`}
+                            className={`transition-transform duration-300 ease-in-out delay-75 ${!mobile ? "group-hover:rotate-180" : ""} ${mobile && openMenu === item.id ? "rotate-180" : ""}`}
                         />
                     </Link>
 
                     {/* dropdown */}
                     <ul
-                        className={` ${mobile ? "relative mt-2" : "absolute left-0 top-full"} bg-white shadow-lg rounded-md p-3 min-w-45 z-40 ${mobile ? (openMenu === item.id ? "block" : "hidden") : "hidden group-hover:block"}`}
+                        className={` ${mobile ? "relative mt-2 overflow-hidden transition-all duration-300 ease-in-out" : "absolute left-0 top-full pt-2"} bg-white lg:shadow-lg rounded-md lg:p-3 min-w-45 z-40 ${
+                            mobile
+                                ? openMenu === item.id
+                                    ? "max-h-40 opacity-100"
+                                    : "max-h-0 opacity-0"
+                                : "invisible opacity-0 -translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out delay-75"
+                        }`}
                     >
                         {item.links.map((link, i) => (
                             <li key={i}>
@@ -74,7 +82,6 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
                             </li>
                         ))}
                     </ul>
-
                 </li>
             ))}
 
@@ -92,11 +99,12 @@ export default function Menu({ mobile = false }: { mobile?: boolean }) {
 
                 <div className="block lg:hidden w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full">
                     <div className="w-fit flex items-center bg-white rounded-full">
-                        <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">Download App</button>
+                        <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
+                            Download App
+                        </button>
                     </div>
                 </div>
             </div>
-
         </ul>
     );
 }

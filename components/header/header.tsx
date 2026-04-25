@@ -15,8 +15,16 @@ export default function Header() {
     const [open, setOpen] = useState(false);
     const rightSideRef = useRef<HTMLDivElement>(null);
     const [active, setActive] = useState("personal");
+    const highlightRef = useRef<HTMLDivElement>(null);
+    const personalBtnRef = useRef<HTMLButtonElement>(null);
+    const businessBtnRef = useRef<HTMLButtonElement>(null);
 
-    const gradient = "bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]";
+    const gradient =
+        "bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]";
+
+    const isFirstRender = useRef(true);
+    const xSetterRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+    const widthSetterRef = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
 
     useEffect(() => {
         if (!rightSideRef.current) return;
@@ -34,18 +42,49 @@ export default function Header() {
                     duration: 0.7,
                     ease: "power3.out",
                     stagger: 0.15,
-                }
+                },
             );
         }, rightSideRef);
 
         return () => ctx.revert();
     }, []);
 
+    useEffect(() => {
+        if (!highlightRef.current || !personalBtnRef.current || !businessBtnRef.current) return;
+
+        const ctx = gsap.context(() => {
+            xSetterRef.current = gsap.quickTo(highlightRef.current, "x", {
+                duration: 0.4,
+                ease: "power2.out",
+            });
+            widthSetterRef.current = gsap.quickTo(highlightRef.current, "width", {
+                duration: 0.4,
+                ease: "power2.out",
+            });
+
+            gsap.set(highlightRef.current, {
+                x: personalBtnRef.current?.offsetLeft || 0,
+                width: personalBtnRef.current?.offsetWidth || 0,
+            });
+            isFirstRender.current = false;
+        });
+
+        return () => ctx.revert();
+    }, []);
+
+    useEffect(() => {
+        if (!highlightRef.current || !personalBtnRef.current || !businessBtnRef.current) return;
+        if (!xSetterRef.current || !widthSetterRef.current) return;
+
+        const targetRef = active === "personal" ? personalBtnRef : businessBtnRef;
+        xSetterRef.current(targetRef.current?.offsetLeft || 0);
+        widthSetterRef.current(targetRef.current?.offsetWidth || 0);
+    }, [active]);
+
     return (
         <header className="py-2 sm:py-4 md:py-6 lg:py-8 transition-all">
             <div className="container">
                 <div className="flex items-center justify-between gap-2">
-
                     {/* LEFT SIDE */}
                     <div className="w-full max-w-70 xl:max-w-100 2xl:max-w-106.75 flex items-center justify-between gap-4 xl:gap-12">
                         <Link href="/" className="w-full max-w-20 xl:max-w-27.5 group">
@@ -60,10 +99,16 @@ export default function Header() {
                         </Link>
 
                         <div className="hidden lg:block w-full max-w-48 xl:max-w-67 bg-[linear-gradient(167.97deg,#09BFD1_0%,#4CCF5C_50%,#A8C61A_100%),linear-gradient(0deg,rgba(255,255,255,0.675),rgba(255,255,255,0.675))] p-px rounded-full">
-                            <div className="w-full flex items-center bg-white p-px xl:p-1 rounded-full">
+                            <div className="w-full flex items-center bg-white p-px xl:p-1 rounded-full relative">
+                                <div
+                                    ref={highlightRef}
+                                    className={`absolute top-0.5 left-0 h-[calc(100%-4px)] ${gradient} rounded-full pointer-events-none`}
+                                    style={{ x: 0, width: "50%" }}
+                                />
 
                                 <button
-                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full ${active === "personal" ? `${gradient} text-white` : "bg-transparent text-black"}`}
+                                    ref={personalBtnRef}
+                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full relative z-10 ${active === "personal" ? "text-white" : "bg-transparent text-black"}`}
                                     type="button"
                                     onMouseEnter={() => setActive("personal")}
                                 >
@@ -71,21 +116,19 @@ export default function Header() {
                                 </button>
 
                                 <button
-                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full ${active === "business" ? `${gradient} text-white` : "bg-transparent text-black"}`}
+                                    ref={businessBtnRef}
+                                    className={`w-full px-2 xl:px-4 py-2 xl:py-3 text-sm xl:text-base leading-5 font-semibold cursor-pointer transition-all duration-300 rounded-full relative z-10 ${active === "business" ? "text-white" : "bg-transparent text-black"}`}
                                     type="button"
                                     onMouseEnter={() => setActive("business")}
                                 >
                                     Business
                                 </button>
-
                             </div>
-
                         </div>
                     </div>
 
                     {/* RIGHT SIDE */}
                     <div ref={rightSideRef} className="flex items-center gap-2 2xl:gap-4.5">
-
                         {/* DESKTOP MENU */}
                         <div className="hidden lg:block">
                             <Menu />
@@ -96,13 +139,16 @@ export default function Header() {
                         <div className="flex items-center right-item">
                             <div className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] pl-px py-px rounded-l-full">
                                 <div className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] group-hover:bg-white rounded-l-full">
-                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-white px-2 py-1 cursor-pointer">EN</button>
+                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-white px-2 py-1 cursor-pointer">
+                                        EN
+                                    </button>
                                 </div>
-
                             </div>
                             <div className="bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] pr-px py-px rounded-tr-full rounded-br-full">
                                 <div className="bg-white hover:bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] rounded-tr-full rounded-br-full transition-all">
-                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-[#01292C] px-2 p-1 cursor-pointer hover:text-white transition-all">বাং</button>
+                                    <button className="text-xs xl:text-sm 2xl:text-base font-semibold text-[#01292C] px-2 p-1 cursor-pointer hover:text-white transition-all">
+                                        বাং
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -111,51 +157,46 @@ export default function Header() {
 
                         <div className="hidden lg:block w-fit bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)] p-px rounded-full right-item">
                             <div className="w-fit flex items-center bg-white rounded-full">
-                                <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">Download App</button>
+                                <button className="w-full px-2 xl:px-4 py-2 2xl:py-3 text-xs xl:text-sm 2xl:text-base leading-5 font-semibold text-black cursor-pointer transition-all rounded-full hover:text-white hover:bg-[linear-gradient(90deg,#3AC2D6_-2.38%,#59C4AB_15.62%,#7EC779_40.62%,#99CA54_62.62%,#A9CB3E_79.62%,#B0CC36_90.62%,#B0CC36_97.62%)]">
+                                    Download App
+                                </button>
                             </div>
                         </div>
 
                         {/* MOBILE HAMBURGER (ONLY ADDITION) */}
-                        <button
-                            onClick={() => setOpen(true)}
-                            className="lg:hidden"
-                        >
+                        <button onClick={() => setOpen(true)} className="lg:hidden">
                             <HamburgerIcon size={24} />
                         </button>
-
                     </div>
-
                 </div>
             </div>
 
-            {/* MOBILE MENU (SLIDE - NO DESIGN CHANGE ABOVE) */}
-            {open && (
-                <div className="fixed inset-0 z-50 lg:hidden">
+            {/* MOBILE MENU PANEL */}
+            <div
+                className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ease-in-out ${open ? "visible opacity-100" : "invisible opacity-0"}`}
+            >
+                {/* overlay */}
+                <div
+                    onClick={() => setOpen(false)}
+                    className={`absolute inset-0 bg-black/60 transition-all duration-300 ease-in-out ${open ? "opacity-100" : "opacity-0"}`}
+                />
 
-                    {/* overlay */}
-                    <div
-                        onClick={() => setOpen(false)}
-                        className="absolute inset-0 bg-black/60"
-                    />
+                {/* sidebar */}
+                <div
+                    className={`absolute left-0 top-0 h-full w-72 bg-white shadow-lg p-5 transition-all duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}
+                >
+                    {/* close */}
+                    <div className="flex justify-between items-center mb-6">
+                        <Image src={LogoIcon} alt="logo" width={90} height={40} />
 
-                    {/* sidebar */}
-                    <div className="absolute left-0 top-0 h-full w-72 bg-white shadow-lg p-5 transition-transform duration-2000">
-
-                        {/* close */}
-                        <div className="flex justify-between items-center mb-6">
-                            <Image src={LogoIcon} alt="logo" width={90} height={40} />
-
-                            <button onClick={() => setOpen(false)}>
-                                <X size={22} />
-                            </button>
-                        </div>
-
-                        <Menu mobile />
-
+                        <button onClick={() => setOpen(false)}>
+                            <X size={22} />
+                        </button>
                     </div>
 
+                    <Menu mobile />
                 </div>
-            )}
+            </div>
         </header>
     );
 }
