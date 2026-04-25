@@ -20,9 +20,9 @@ export default function Home() {
             <Company />
             <Security />
             <Discover />
+            <Steps />
             <BlinkDifference />
             <BuildSection />
-            <Steps />
             <Customer />
             <FAQ />
             <ReadyBlink />

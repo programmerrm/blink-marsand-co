@@ -17,7 +17,7 @@ export default function Security() {
     useEffect(() => {
         const ctx = gsap.context(() => {
 
-            // 🔹 HEADING ANIMATION
+            // 🔹 HEADING
             gsap.fromTo(
                 headingRef.current,
                 { y: 80, opacity: 0, scale: 0.85 },
@@ -25,8 +25,8 @@ export default function Security() {
                     y: 0,
                     opacity: 1,
                     scale: 1,
-                    duration: 1.2,
-                    ease: "power3.out",
+                    duration: 1,
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: headingRef.current,
                         start: "top 90%",
@@ -34,8 +34,7 @@ export default function Security() {
                     },
                 }
             );
-
-            // 🔥 CARD SEQUENTIAL ANIMATION
+            
             const cards = gsap.utils.toArray<HTMLElement>(".card-item");
 
             const tl = gsap.timeline({
@@ -46,58 +45,57 @@ export default function Security() {
                 }
             });
 
-            cards.forEach((card) => {
+            cards.forEach((card, i) => {
 
-                // CARD
+                const overlap = i === 0 ? 0 : "-=0.45";
+
                 tl.fromTo(card,
                     { y: 100, opacity: 0, scale: 0.9 },
                     {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.5,
-                        ease: "power3.out"
-                    }
+                        duration: 0.45,
+                        ease: "power2.out"
+                    },
+                    overlap
                 )
 
-                // IMAGE
                 .fromTo(
                     card.querySelectorAll("img"),
-                    { y: 80, opacity: 0, scale: 0.95 },
+                    { y: 60, opacity: 0, scale: 0.95 },
                     {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.5,
-                        ease: "power3.out"
+                        duration: 0.4,
+                        ease: "power2.out"
                     },
                     "-=0.3"
                 )
 
-                // HEADING
                 .fromTo(
                     card.querySelectorAll("h3"),
-                    { y: 30, opacity: 0 },
+                    { y: 25, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
-                        duration: 0.5,
-                        ease: "power3.out"
+                        duration: 0.35,
+                        ease: "power2.out"
                     },
-                    "-=0.2"
+                    "-=0.25"
                 )
 
-                // TEXT
                 .fromTo(
                     card.querySelectorAll("p"),
-                    { y: 30, opacity: 0 },
+                    { y: 25, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
-                        duration: 0.5,
-                        ease: "power3.out"
+                        duration: 0.35,
+                        ease: "power2.out"
                     },
-                    "-=0.2"
+                    "-=0.25"
                 );
 
             });
