@@ -137,7 +137,7 @@ function Steps() {
                                     </p>
                                 </div>
                             </div>
-                            <span className="absolute -bottom-4 w-[95%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl z-2 shadow-glow"></span>
+                            <span className="absolute -bottom-4 w-[95%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl z-2 shadow-glow-card"></span>
                             <span className="absolute -bottom-8 w-[88%] left-1/2 -translate-x-1/2 h-6 bg-white block rounded-b-2xl shadow-md z-1"></span>
                         </div>
                     </div>

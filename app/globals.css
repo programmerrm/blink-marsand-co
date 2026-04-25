@@ -14,6 +14,7 @@
     --shadow-glow:
         0px 4px 24px 0px #4de35c1f, 12px 12px 24px 0px #03ff1c0f, -8px 12px 24px 0px #10ff5314,
         0px 4px 4px 0px #0000000a;
+    --shadow-glow-card: 14.4px 14.4px 28.8px 0px #03ff1c0f, 0px 4.8px 4.8px 0px #0000000a;
 }
 
 body {
