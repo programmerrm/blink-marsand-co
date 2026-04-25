@@ -7,12 +7,18 @@ function Testing() {
         <>
             <section className="py-8 lg:py-25">
                 <div className="container flex lg:flex-row flex-col items-center justify-between gap-4">
-                    <div className="p-20 pb-0 bg-[#FBF8E9]">
-                        <Image src={blinkImg2} alt="send money" width={428} height={402} />
+                    <div className="p-8 pb-0 lg:p-20 lg:pb-0 bg-[#FBF8E9] rounded-2xl">
+                        <Image
+                            src={blinkImg2}
+                            alt="send money"
+                            width={428}
+                            height={402}
+                            className="rounded-t-2xl shadow-2xl"
+                        />
                     </div>
-                    <div className="max-w-160 mt-8 lg:mt-0">
+                    <div className="max-w-157.5 mt-8 lg:mt-0">
                         <h3>Banking support for growing businesses</h3>
-                        <p className="mt-5">
+                        <p className="mt-5 text-base font-medium font-inter text-[#004737CC]">
                             Blink Business helps merchants and businesses accept payments, move
                             money efficiently, and access services with clarity
                         </p>
@@ -28,9 +34,9 @@ function Testing() {
             </section>
             <section className="py-8 lg:py-25">
                 <div className="container flex lg:flex-row flex-col items-center justify-between gap-4">
-                    <div className="max-w-160 mt-8 lg:mt-0 lg:order-1 order-2">
+                    <div className="max-w-157.5 mt-8 lg:mt-0 lg:order-1 order-2">
                         <h3>Rewards that make banking feel more valuable.</h3>
-                        <p className="mt-5">
+                        <p className="mt-5 text-base font-medium font-inter text-[#004737CC]">
                             Earn points, unlock offers, and enjoy benefits designed to reward
                             everyday usage.
                         </p>
@@ -42,8 +48,14 @@ function Testing() {
                             </div>
                         </div>
                     </div>
-                    <div className="p-20 pb-0 bg-[#FBF8E9] lg:order-2 order-1">
-                        <Image src={blinkImg3} alt="send money" width={428} height={402} />
+                    <div className="p-8 pb-0 lg:p-20 lg:pb-0 bg-[#FBF8E9] lg:order-2 order-1 rounded-2xl">
+                        <Image
+                            src={blinkImg3}
+                            alt="send money"
+                            width={428}
+                            height={402}
+                            className="shadow-2xl"
+                        />
                     </div>
                 </div>
             </section>

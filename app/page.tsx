@@ -10,6 +10,7 @@ import Header from "@/components/header/header";
 import ReadyBlink from "@/components/ready-blink/readyBlink";
 import Security from "@/components/security/securitySection";
 import Steps from "@/components/steps/Steps";
+import Testing from "@/components/steps/Testing";
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
             <Security />
             <Discover />
             <Steps />
+            <Testing />
             <BlinkDifference />
             <BuildSection />
             <Customer />
