@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import BillPaymentIcon from "../../assets/icon/bill-payment.svg";
 import UploadIcon from "../../assets/icon/upload-icon.svg";
@@ -10,6 +13,7 @@ import errowRightIcon from "../../assets/icon/chevron-right.svg";
 import OnlineBanking from "../../assets/image/online-banking.png";
 import appFeatureBg from "../../assets/image/app-feature-bg.png";
 export default function AppFeature() {
+    const [activeIndex, setActiveIndex] = useState(0);
     return (
         <section className="py-10 md:py-12.5 lg:py-25 relative">
             <div className="absolute top-103 left-0 right-0 flex justify-center">
@@ -27,7 +31,7 @@ export default function AppFeature() {
                 </div>
                 <div className="py-8 lg:py-25 md:mt-10 lg:mt-16 flex flex-col md:flex-row items-center justify-between gap-5">
                     <div className="w-full md:max-w-133.25">
-                        <div className="bg-[#FBF8E9] p-4 md:p-6 border-l-3 border-[#004737]/20 relative after:absolute after:top-0 after:-left-0.75 after:bottom-0 after:w-0.75 after:bg-[#004737]">
+                        <div onClick={() => setActiveIndex(0)} className={`p-4 md:p-6 border-l-3 border-[#004737]/20 relative cursor-pointer transition-all ${activeIndex === 0 ? "bg-[#FBF8E9] after:absolute after:top-0 after:-left-0.75 after:bottom-0 after:w-0.75 after:bg-[#004737]" : "bg-white"}`}>
                             <div className="flex items-center gap-4 mb-2">
                                 <div className="w-full max-w-4.5">
                                     <Image
@@ -41,7 +45,7 @@ export default function AppFeature() {
                             </div>
                             <p className="text-sm text-[#0C231F]/60 font-inter leading-5.25 font-medium">Stay ahead of payments with Blink's smart reminders. Never miss a due date again, ensuring your bills are paid on time, every time. Enjoy peace of mind with hassle-free bill management. </p>
                         </div>
-                        <div className="bg-white p-4 md:p-6 border-l-3 border-[#004737]/20">
+                        <div onClick={() => setActiveIndex(1)} className={`p-4 md:p-6 border-l-3 border-[#004737]/20 relative cursor-pointer transition-all ${activeIndex === 1 ? "bg-[#FBF8E9] after:absolute after:top-0 after:-left-0.75 after:bottom-0 after:w-0.75 after:bg-[#004737]" : "bg-white"}`}>
                             <div className="flex items-center gap-4 mb-2">
                                 <div className="w-full max-w-4.5">
                                     <Image
@@ -55,7 +59,7 @@ export default function AppFeature() {
                             </div>
                             <p className="text-sm text-[#0C231F]/60 font-inter leading-5.25 font-medium">Stay ahead of payments with Blink's smart reminders. Never miss a due date again, ensuring your bills are paid on time, every time. Enjoy peace of mind with hassle-free bill management. </p>
                         </div>
-                        <div className="bg-white p-4 md:p-6 border-l-3 border-[#004737]/20">
+                        <div onClick={() => setActiveIndex(2)} className={`p-4 md:p-6 border-l-3 border-[#004737]/20 relative cursor-pointer transition-all ${activeIndex === 2 ? "bg-[#FBF8E9] after:absolute after:top-0 after:-left-0.75 after:bottom-0 after:w-0.75 after:bg-[#004737]" : "bg-white"}`}>
                             <div className="flex items-center gap-4 mb-2">
                                 <div className="w-full max-w-4">
                                     <Image
