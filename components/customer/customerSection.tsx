@@ -14,6 +14,7 @@ export default function Customer() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const quoteRef = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
+  const hdesRef = useRef<HTMLHRElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const roleRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -37,6 +38,17 @@ export default function Customer() {
         ease: "power3.out",
       });
 
+      tl.from(
+        imageRef.current,
+        {
+          y: 80,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        },
+        "-=0.3"
+      );
+
       tl.from(titleRef.current, {
         y: 50,
         opacity: 0,
@@ -55,6 +67,12 @@ export default function Customer() {
         duration: 0.5,
       }, "-=0.3");
 
+      tl.from(hdesRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.5,
+      }, "-=0.3");
+
       tl.from(nameRef.current, {
         y: 30,
         opacity: 0,
@@ -67,28 +85,13 @@ export default function Customer() {
         duration: 0.4,
       }, "-=0.2");
 
-      tl.fromTo(
-        imageRef.current,
-        {
-          scale: 0.6,
-          opacity: 0,
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out",
-        },
-        "-=0.8"
-      );
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative">
+    <section className="bg-[linear-gradient(90deg,#006870_0.38%,#006870_1.38%,#004B51_43.62%,#01292C_100.94%)] relative overflow-hidden">
       <div className="container">
         {/* Background */}
         <div className="absolute top-0 left-0 right-0 bottom-0 lg:h-154 xl:h-187">
@@ -107,9 +110,9 @@ export default function Customer() {
             <div className=" max-w-122 w-full mt-10 md:mt-20">
               <span ref={quoteRef} className="text-base sm:text-xl font-semibold font-inter leading-6.25 text-white">“Best digital banking service”</span>
               <p ref={descRef} className="text-base sm:text-xl font-normal font-inter leading-6.25 text-white mt-4 sm:mt-8">Blink has transformed my financial life. It&apos;s intuitive, secure, and makes managing my money a breeze. Highly recommended!</p>
-              <hr className="text-white mt-4 sm:mt-8 "/>
+              <hr ref={hdesRef} className="text-white mt-4 sm:mt-8 " />
             </div>
-            
+
             <div className="mt-8 sm:mt-16">
               <h4 ref={nameRef} className="text-xl sm:text-2xl font-semibold leading-6.25 text-white font-inter">Samia Rahman</h4>
               <h5 ref={roleRef} className=" font-inter font-normal text-[#BDD630] mt-1">HR</h5>
