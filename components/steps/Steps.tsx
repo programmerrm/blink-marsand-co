@@ -23,7 +23,7 @@ function Steps() {
                 {/* Step cards container */}
                 <div className="relative z-1">
                     {/* step 1 */}
-                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8">
+                    <div className="bg-[#FBF8E9] rounded-[2.5rem] px-8 pt-8 overflow-hidden">
                         <span className="bg-[#57DF98] py-2.5 px-5 rounded-full text-lg font-medium">
                             Step 1
                         </span>
@@ -148,7 +148,7 @@ function Steps() {
                 alt="shape"
                 width={1028}
                 height={1025}
-                className="absolute left-0 bottom-0 w-full lg:w-auto"
+                className="absolute left-0 bottom-0"
             />
         </section>
     );
