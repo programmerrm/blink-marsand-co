@@ -19,6 +19,8 @@ export default function Home() {
             <Company />
             <Security />
             <Discover />
+            <BlinkDifference />
+            <BuildSection />
             <Steps />
             <Customer />
             <FAQ />
