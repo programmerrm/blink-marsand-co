@@ -7,21 +7,21 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import ReadyBlink from "@/components/ready-blink/readyBlink";
 import Security from "@/components/security/securitySection";
+import Steps from "@/components/steps/Steps";
 
 export default function Home() {
-  return (
-    <main>
-
-      <Header />
-      <BannarSection />
-      <Company />
-      <Security />
-      <Discover />
-      <Customer />
-      <FAQ />
-      <ReadyBlink />
-      <Footer />
-
-    </main>
-  );
+    return (
+        <main>
+            <Header />
+            <BannarSection />
+            <Company />
+            <Security />
+            <Discover />
+            <Steps />
+            <Customer />
+            <FAQ />
+            <ReadyBlink />
+            <Footer />
+        </main>
+    );
 }
