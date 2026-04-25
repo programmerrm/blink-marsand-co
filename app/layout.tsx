@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat, Roboto, Blinker } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/smoothScroll/smoothScroll";
+import ScrollToTop from "@/components/button/button";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -34,7 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body
                 className={`${inter.variable} ${montserrat.variable} ${roboto.variable} ${blinker.variable} min-h-full`}
             >
-                <SmoothScroll>{children}</SmoothScroll>
+                <SmoothScroll>
+                    {children}
+                    <ScrollToTop />
+                </SmoothScroll>
             </body>
         </html>
     );
